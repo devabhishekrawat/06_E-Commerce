@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Product Detail</title>
+</head>
+
+<body>
+    <div class="top-banner">
+        <p class="top-banner__text">
+            Sign up and get 20% off to your first order.
+            <a href="./login.html" class="top-banner__link">Sign Up Now</a>
+        </p>
+        <button class="top-banner__close" aria-label="Close banner">&times;</button>
+    </div>
+
+    <header class="header">
+        <div class="header__container">
+            <a href="#" class="header__logo">SHOP.CO</a>
+
+            <nav class="header__nav">
+                <ul class="header__menu">
+                    <li class="header__menu-item"><a href="#" class="header__link">Shop <img
+                                src="./assets/icons/down-arrow.svg" alt="search icon"></a></li>
+                    <li class="header__menu-item"><a href="#" class="header__link">On Sale</a></li>
+                    <li class="header__menu-item"><a href="#" class="header__link">New Arrivals</a></li>
+                    <li class="header__menu-item"><a href="#" class="header__link">Brands</a></li>
+                </ul>
+            </nav>
+
+            <div class="header__search">
+                <span class="header__search-icon"><img src="./assets/icons/search-icon.svg" alt="search icon"></span>
+                <input type="text" class="header__search-input" placeholder="Search for products...">
+            </div>
+
+            <div class="header__actions">
+                <button class="header__action-btn" aria-label="Cart"><img src="./assets/icons/cart-icon.svg"
+                        alt="cart icon"></button>
+                <button class="header__action-btn" aria-label="Account"><img src="./assets/icons/user-icon.svg"
+                        alt="user"></button>
+            </div>
+        </div>
+    </header>
+    <main class="product-page">
+        <div class="product-page__container">
+            <nav class="breadcrumb">
+                <a href="#">Home</a>
+                <span class="breadcrumb__separator">&gt;</span>
+                <a href="#">Shop</a>
+                <span class="breadcrumb__separator">&gt;</span>
+                <a href="#">Men</a>
+                <span class="breadcrumb__separator">&gt;</span>
+                <span class="breadcrumb__current">T-shirts</span>
+            </nav>
+
+            <div class="product-detail">
+                <div class="product-gallery">
+                    <div class="product-gallery__thumbnails">
+                    </div>
+                    <div class="product-gallery__main">
+                        <img src="" alt="Main Product" class="product-gallery__main-img">
+                    </div>
+                </div>
+                <div class="product-detail__info">
+                    <h1 class="product-detail__title">ONE LIFE GRAPHIC T-SHIRT</h1>
+                    <div class="product-detail__rating">
+                        <div class="stars"></div>
+                        <span class="rating-score">0/5</span>
+                    </div>
+
+                    <div class="product-detail__price">
+                        <span class="price-current">$0</span>
+                        <span class="price-original">$0</span>
+                        <span class="price-discount">-0%</span>
+                    </div>
+
+                    <p class="product-detail__desc"></p>
+
+                    <hr class="divider">
+
+                    <div class="product-detail__colors">
+                        <span class="section-label">Select Colors</span>
+                        <div class="color-options">
+                            <button type="button" class="color-option color-option--selected"
+                                style="background-color: #4F4E37;" aria-label="Olive Green"></button>
+                            <button type="button" class="color-option" style="background-color: #314F4A;"
+                                aria-label="Teal Green"></button>
+                            <button type="button" class="color-option" style="background-color: #31344F;"
+                                aria-label="Navy Blue"></button>
+                        </div>
+                    </div>
+
+                    <hr class="divider">
+
+                    <div class="product-detail__sizes">
+                        <span class="section-label">Choose Size</span>
+                        <div class="size-options">
+                            <button type="button" class="size-btn" data-size="Small">Small</button>
+                            <button type="button" class="size-btn" data-size="Medium">Medium</button>
+                            <button type="button" class="size-btn size-btn--selected" data-size="Large">Large</button>
+                            <button type="button" class="size-btn" data-size="X-Large">X-Large</button>
+                        </div>
+                    </div>
+
+                    <hr class="divider">
+
+                    <div class="product-detail__actions">
+                        <div class="quantity-stepper">
+                            <button type="button" class="btn-minus">-</button>
+                            <span class="qty-val">1</span>
+                            <button type="button" class="btn-plus">+</button>
+                        </div>
+                        <button type="button" class="add-to-cart-btn">Add to Cart</button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <section class="reviews-section">
+        <div class="reviews-section__tabs">
+            <button class="reviews-section__tab">Product Details</button>
+            <button class="reviews-section__tab reviews-section__tab--active">Rating & Reviews</button>
+            <button class="reviews-section__tab">FAQs</button>
+        </div>
+
+        <div class="reviews-section__header">
+            <h2 class="reviews-section__title">
+                All Reviews <span class="reviews-section__count">(0)</span>
+            </h2>
+            <div class="reviews-section__controls">
+                <button class="reviews-section__filter-btn" aria-label="Filter"></button>
+                <select class="reviews-section__sort-select">
+                    <option value="latest">Latest</option>
+                    <option value="oldest">Oldest</option>
+                    <option value="highest">Highest Rating</option>
+                </select>
+                <button class="reviews-section__write-btn">Write a Review</button>
+            </div>
+        </div>
+
+        <div class="reviews-section__grid"></div>
+
+        <div class="reviews-section__footer">
+            <button class="reviews-section__load-btn">Load More Reviews</button>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer__container">
+
+            <div class="newsletter-card">
+                <h2 class="newsletter-card__title">
+                    STAY UPTO DATE ABOUT<br>OUR LATEST OFFERS
+                </h2>
+                <div class="newsletter-card__form">
+                    <div class="newsletter-card__input-wrapper">
+                        <img src="./assets/icons/mail-icon.svg" alt="Mail Icon" class="input-icon">
+                        <input type="email" placeholder="Enter your email address" class="newsletter-card__input">
+                    </div>
+                    <button type="button" class="newsletter-card__btn">Subscribe to Newsletter</button>
+                </div>
+            </div>
+
+            <div class="footer__main">
+                <div class="footer__brand">
+                    <h2 class="footer__logo">SHOP.CO</h2>
+                    <p class="footer__desc">
+                        We have clothes that suits your style and which you're proud to wear. From women to men.
+                    </p>
+                    <div class="footer__socials">
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <img src="./assets/icons/twitter-icon.svg" alt="Twitter" class="social-icon">
+                        </a>
+                        <a href="#" class="social-link social-link--active" aria-label="Facebook">
+                            <img src="./assets/icons/facebook-icon.svg" alt="Facebook" class="social-icon">
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <img src="./assets/icons/instagram-icon.svg" alt="Instagram" class="social-icon">
+                        </a>
+                        <a href="#" class="social-link" aria-label="GitHub">
+                            <img src="./assets/icons/github-icon.svg" alt="GitHub" class="social-icon">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer__col">
+                    <h3 class="footer__col-title">COMPANY</h3>
+                    <ul class="footer__links">
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Works</a></li>
+                        <li><a href="#">Career</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__col">
+                    <h3 class="footer__col-title">HELP</h3>
+                    <ul class="footer__links">
+                        <li><a href="#">Customer Support</a></li>
+                        <li><a href="#">Delivery Details</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__col">
+                    <h3 class="footer__col-title">FAQ</h3>
+                    <ul class="footer__links">
+                        <li><a href="#">Account</a></li>
+                        <li><a href="#">Manage Deliveries</a></li>
+                        <li><a href="#">Orders</a></li>
+                        <li><a href="#">Payments</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer__col">
+                    <h3 class="footer__col-title">RESOURCES</h3>
+                    <ul class="footer__links">
+                        <li><a href="#">Free eBooks</a></li>
+                        <li><a href="#">Development Tutorial</a></li>
+                        <li><a href="#">How to - Blog</a></li>
+                        <li><a href="#">Youtube Playlist</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="footer__divider">
+
+            <div class="footer__bottom">
+                <p class="footer__copyright">
+                    Shop.co © 2000-2023, All Rights Reserved
+                </p>
+                <div class="footer__payments">
+                    <span class="payment-badge">
+                        <img src="./assets/icons/visa-icon.svg" alt="Visa" class="payment-icon">
+                    </span>
+                    <span class="payment-badge">
+                        <img src="./assets/icons/mastercard-icon.svg" alt="MasterCard" class="payment-icon">
+                    </span>
+                    <span class="payment-badge">
+                        <img src="./assets/icons/paypal-icon.svg" alt="PayPal" class="payment-icon">
+                    </span>
+                    <span class="payment-badge">
+                        <img src="./assets/icons/apple-pay-icon.svg" alt="Apple Pay" class="payment-icon">
+                    </span>
+                    <span class="payment-badge">
+                        <img src="./assets/icons/google-pay-icon.svg" alt="Google Pay" class="payment-icon">
+                    </span>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <script src="./js/product-details.js" type="module"></script>
+</body>
+
+</html>
