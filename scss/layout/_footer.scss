@@ -142,6 +142,10 @@
         display: flex;
         gap: 0.6rem;
 
+        @media (max-width:350px) {
+            gap: 0;
+        }
+
         .payment-badge {
             background: #fff;
             padding: 0.4rem 0.8rem;
