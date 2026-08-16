@@ -447,8 +447,11 @@
         gap: 0.4rem;
 
         .name {
+            font-family: "Satoshi";
             font-size: 1.1rem;
             font-weight: 700;
+            letter-spacing: 0%;
+
         }
 
         .verified-icon {
@@ -469,5 +472,10 @@
         font-size: 0.95rem;
         color: rgba(0, 0, 0, 0.6);
         line-height: 1.5;
+        font-family: "Satoshi";
+        font-weight: 400;
+        font-style: Regular;
+        letter-spacing: 0%;
+
     }
 }

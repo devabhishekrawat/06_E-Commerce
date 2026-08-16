@@ -1,6 +1,31 @@
 import { products1, products2, testimonials } from "./data.js";
 
 
+document.addEventListener("DOMContentLoaded", () => {
+    const hamburger = document.querySelector(".header__hamburger");
+    const nav = document.querySelector(".header__nav");
+
+    hamburger.addEventListener("click", () => {
+        nav.classList.toggle("header__nav--open");
+    });
+
+    renderProducts(
+        products1,
+        newArrivalsGrid,
+        newArrivalsBtn
+    );
+
+    renderProducts(
+        products2,
+        topSellingGrid,
+        topSellingBtn
+    );
+
+    renderTestimonials();
+});
+
+
+
 const newArrivalsGrid = document.querySelector("#new-arrivals-grid");
 const topSellingGrid = document.querySelector("#top-selling-grid");
 
@@ -254,3 +279,54 @@ renderProducts(
     topSellingGrid,
     topSellingBtn
 );
+
+
+function renderTestimonials() {
+    const track = document.querySelector(".testimonials__track");
+
+    if (!track) return;
+
+    track.innerHTML = testimonials.map((testimonial) => `
+        <div class="testimonial-card">
+            <div class="testimonial-card__stars">
+                ${generateStars(testimonial.rating)}
+            </div>
+
+            <div class="testimonial-card__author">
+                <span class="name">${testimonial.name}</span>
+                <span class="verified-icon">✓</span>
+            </div>
+
+            <p class="testimonial-card__text">
+                "${testimonial.feedback}"
+            </p>
+        </div>
+    `).join("");
+}
+
+function generateStars(rating) {
+    const fullStars = Math.floor(rating);
+    const hasHalfStar = rating % 1 >= 0.5;
+
+    let stars = "";
+
+    for (let i = 0; i < fullStars; i++) {
+        stars += `
+            <img
+                src="./assets/icons/Star.svg"
+                alt="Star"
+                class="testimonial-card__star-img">
+        `;
+    }
+
+    if (hasHalfStar) {
+        stars += `
+            <img
+                src="./assets/icons/halfStar.svg"
+                alt="Half Star"
+                class="testimonial-card__star-img">
+        `;
+    }
+
+    return stars;
+}

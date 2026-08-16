@@ -20,15 +20,19 @@
 
   <header class="header">
     <div class="header__container">
+      <button class="header__hamburger" aria-label="Menu">
+        <img src="./assets/icons/humburger.svg" alt="Menu">
+      </button>
+
       <a href="#" class="header__logo">SHOP.CO</a>
 
       <nav class="header__nav">
         <ul class="header__menu">
           <li class="header__menu-item"><a href="#" class="header__link">Shop <img src="./assets/icons/down-arrow.svg"
                 alt="search icon"></a></li>
-          <li class="header__menu-item"><a href="#" class="header__link">On Sale</a></li>
-          <li class="header__menu-item"><a href="#" class="header__link">New Arrivals</a></li>
-          <li class="header__menu-item"><a href="#" class="header__link">Brands</a></li>
+          <li class="header__menu-item"><a href="#top-selling" class="header__link">On Sale</a></li>
+          <li class="header__menu-item"><a href="#new-arrival" class="header__link">New Arrivals</a></li>
+          <li class="header__menu-item"><a href="#brands" class="header__link">Brands</a></li>
         </ul>
       </nav>
 
@@ -38,10 +42,9 @@
       </div>
 
       <div class="header__actions">
-        <button class="header__action-btn" aria-label="Cart"><img src="./assets/icons/cart-icon.svg"
-            alt="cart icon"></button>
-        <button class="header__action-btn" aria-label="Account"><img src="./assets/icons/user-icon.svg"
-            alt="user"></button>
+        <a href="./cart.html" class="header__action-btn" aria-label="Cart"><img src="./assets/icons/cart-icon.svg"
+            alt="cart icon"></a>
+        <a class="header__action-btn" aria-label="Account"><img src="./assets/icons/user-icon.svg" alt="user"></a>
       </div>
     </div>
   </header>
@@ -85,7 +88,7 @@
 
     </div>
   </section>
-  <section class="brands">
+  <section class="brands" id="brands">
     <div class="brands__container">
       <img src="./assets/icons/versace-icon.svg" alt="Versace" class="brands__logo">
       <img src="./assets/icons/zara-icon.svg" alt="Zara" class="brands__logo">
@@ -95,7 +98,7 @@
     </div>
   </section>
 
-  <section class="products-section">
+  <section class="products-section" id="new-arrival">
 
     <div class="products-container">
       <h2 class="products-section__title">NEW ARRIVALS</h2>
@@ -108,7 +111,7 @@
       </button>
     </div>
 
-    <hr class="products-section__divider">
+    <hr class="products-section__divider" id="top-selling">
 
     <div class="products-container">
       <h2 class="products-section__title">TOP SELLING</h2>
@@ -159,80 +162,12 @@
     <div class="testimonials__wrapper">
       <div class="testimonials__overlay testimonials__overlay--left"></div>
 
-      <div class="testimonials__track">
-        <div class="testimonial-card">
-          <div class="testimonial-card__stars">
-            <img src="" alt="5 stars" class="testimonial-card__star-img">
-          </div>
-          <div class="testimonial-card__author">
-            <span class="name">Emily R.</span>
-            <span class="verified-icon">✓</span>
-          </div>
-          <p class="testimonial-card__text">
-            "The selection of clothes is not only diverse but also on-point with the latest trends. Highly recommend!"
-          </p>
-        </div>
-
-        <div class="testimonial-card">
-          <div class="testimonial-card__stars">
-            <img src="" alt="5 stars" class="testimonial-card__star-img">
-          </div>
-          <div class="testimonial-card__author">
-            <span class="name">Sarah M.</span>
-            <span class="verified-icon">✓</span>
-          </div>
-          <p class="testimonial-card__text">
-            "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant
-            dresses, every piece I've bought has exceeded my expectations."
-          </p>
-        </div>
-
-        <div class="testimonial-card">
-          <div class="testimonial-card__stars">
-            <img src="" alt="5 stars" class="testimonial-card__star-img">
-          </div>
-          <div class="testimonial-card__author">
-            <span class="name">Alex K.</span>
-            <span class="verified-icon">✓</span>
-          </div>
-          <p class="testimonial-card__text">
-            "Finding clothes that align with my personal style used to be a challenge until I discovered Shop.co. The
-            range of options they offer is truly remarkable, catering to a variety of tastes and occasions."
-          </p>
-        </div>
-
-        <div class="testimonial-card">
-          <div class="testimonial-card__stars">
-            <img src="" alt="5 stars" class="testimonial-card__star-img">
-          </div>
-          <div class="testimonial-card__author">
-            <span class="name">James L.</span>
-            <span class="verified-icon">✓</span>
-          </div>
-          <p class="testimonial-card__text">
-            "As someone who's always on the lookout for unique fashion pieces, I'm thrilled to have stumbled upon
-            Shop.co. The selection of clothes is not only diverse but also on-point with the latest trends."
-          </p>
-        </div>
-
-        <div class="testimonial-card">
-          <div class="testimonial-card__stars">
-            <img src="" alt="5 stars" class="testimonial-card__star-img">
-          </div>
-          <div class="testimonial-card__author">
-            <span class="name">Mooen</span>
-            <span class="verified-icon">✓</span>
-          </div>
-          <p class="testimonial-card__text">
-            "As someone who's always on the lookout for unique fashion pieces, I'm thrilled to have stumbled upon
-            Shop.co."
-          </p>
-        </div>
-      </div>
+      <div class="testimonials__track"></div>
 
       <div class="testimonials__overlay testimonials__overlay--right"></div>
     </div>
   </section>
+
   <footer class="footer">
     <div class="footer__container">
 

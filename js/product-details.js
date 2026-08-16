@@ -1,5 +1,11 @@
 import { products1, products2, testimonials } from "./data.js";
 
+const user = JSON.parse(sessionStorage.getItem("user"));
+
+if (!user?.isLoggedIn) {
+    window.location.href = "./login.html";
+}
+
 const allProducts = [...products1, ...products2];
 const params = new URLSearchParams(window.location.search);
 const productId = params.get("id");
@@ -108,7 +114,8 @@ function renderProductDetails(product) {
             productName: product.name,
             quantity: quantity,
             size: selectedSize?.textContent.trim() || "",
-            color: selectedColor?.getAttribute("aria-label") || ""
+            color: selectedColor?.getAttribute("aria-label") || "",
+            price: product.price
         };
 
         const cart = JSON.parse(
