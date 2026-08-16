@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHOP.CO - Sign In</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <main class="login">
+        <div class="login__container">
+            <div class="login__content">
+                <div class="login__brand">
+                    SHOP.CO
+                </div>
+                <div class="login__header">
+                    <h1 class="login__title">
+                        WELCOME BACK
+                    </h1>
+                    <p class="login__description">
+                        Sign in to your account and continue shopping
+                        your favorite styles.
+                    </p>
+                </div>
+                <form class="login__form" id="login-form">
+                    <div class="login__field">
+                        <label for="email" class="login__label">
+                            Email Address
+                        </label>
+                        <input type="email" id="email" name="email" class="login__input"
+                            placeholder="Enter your email address" required>
+                    </div>
+                    <div class="login__field">
+                        <div class="login__label-row">
+                            <label for="password" class="login__label">
+                                Password
+                            </label>
+                            <a href="#" class="login__forgot">
+                                Forgot Password?
+                            </a>
+                        </div>
+                        <input type="password" id="password" name="password" class="login__input"
+                            placeholder="Enter your password" required>
+                    </div>
+                    <p class="login__error" id="login-error" aria-live="polite"></p>
+                    <button type="submit" class="login__button">
+                        Sign In
+                    </button>
+                </form>
+                <p class="login__signup">
+                    Don't have an account?
+                    <a href="#">
+                        Sign Up
+                    </a>
+                </p>
+            </div>
+            <div class="login__visual">
+                <div class="login__visual-content">
+                    <span class="login__star login__star--large">
+                        ✦
+                    </span>
+                    <h2>
+                        FIND YOUR
+                        <br>
+                        PERFECT STYLE
+                    </h2>
+                    <p>
+                        Discover clothes that match your
+                        personality and make you feel confident.
+                    </p>
+                    <span class="login__star login__star--small">
+                        ✦
+                    </span>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="./js/auth.js"></script>
+
+</body>
+
+</html>

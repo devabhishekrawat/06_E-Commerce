@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SHOP.CO</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+  <div class="top-banner">
+    <p class="top-banner__text">
+      Sign up and get 20% off to your first order.
+      <a href="./login.html" class="top-banner__link">Sign Up Now</a>
+    </p>
+    <button class="top-banner__close" aria-label="Close banner">&times;</button>
+  </div>
+
+  <header class="header">
+    <div class="header__container">
+      <a href="#" class="header__logo">SHOP.CO</a>
+
+      <nav class="header__nav">
+        <ul class="header__menu">
+          <li class="header__menu-item"><a href="#" class="header__link">Shop <img src="./assets/icons/down-arrow.svg"
+                alt="search icon"></a></li>
+          <li class="header__menu-item"><a href="#" class="header__link">On Sale</a></li>
+          <li class="header__menu-item"><a href="#" class="header__link">New Arrivals</a></li>
+          <li class="header__menu-item"><a href="#" class="header__link">Brands</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__search">
+        <span class="header__search-icon"><img src="./assets/icons/search-icon.svg" alt="search icon"></span>
+        <input type="text" class="header__search-input" placeholder="Search for products...">
+      </div>
+
+      <div class="header__actions">
+        <button class="header__action-btn" aria-label="Cart"><img src="./assets/icons/cart-icon.svg"
+            alt="cart icon"></button>
+        <button class="header__action-btn" aria-label="Account"><img src="./assets/icons/user-icon.svg"
+            alt="user"></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero__container">
+
+      <div class="hero__content">
+        <h1 class="hero__title">FIND CLOTHES<br>THAT MATCHES<br>YOUR STYLE</h1>
+
+        <p class="hero__description">
+          Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality
+          and cater to your sense of style.
+        </p>
+
+        <a href="#" class="hero__cta">Shop Now</a>
+
+        <div class="hero__stats">
+          <div class="hero__stat-item">
+            <span class="hero__stat-number">200+</span>
+            <span class="hero__stat-label">International Brands</span>
+          </div>
+          <div class="hero__stat-divider"></div>
+          <div class="hero__stat-item">
+            <span class="hero__stat-number">2,000+</span>
+            <span class="hero__stat-label">High-Quality Products</span>
+          </div>
+          <div class="hero__stat-divider"></div>
+          <div class="hero__stat-item">
+            <span class="hero__stat-number">30,000+</span>
+            <span class="hero__stat-label">Happy Customers</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__media">
+        <span class="hero__star hero__star--large">&#10022;</span>
+        <span class="hero__star hero__star--small">&#10022;</span>
+        <img src="./assets/images/background-images/hero-bg.png" alt="Fashion Models" class="hero__image">
+      </div>
+
+    </div>
+  </section>
+  <section class="brands">
+    <div class="brands__container">
+      <img src="./assets/icons/versace-icon.svg" alt="Versace" class="brands__logo">
+      <img src="./assets/icons/zara-icon.svg" alt="Zara" class="brands__logo">
+      <img src="./assets/icons/gucci-icon.svg" alt="Gucci" class="brands__logo">
+      <img src="./assets/icons/prada-icon.svg" alt="Prada" class="brands__logo">
+      <img src="./assets/icons/calvin-icon.svg" alt="Calvin Klein" class="brands__logo">
+    </div>
+  </section>
+
+  <section class="products-section">
+
+    <div class="products-container">
+      <h2 class="products-section__title">NEW ARRIVALS</h2>
+
+      <div class="products-grid" id="new-arrivals-grid">
+      </div>
+
+      <button class="products-section__btn" id="new-arrivals-btn">
+        View All
+      </button>
+    </div>
+
+    <hr class="products-section__divider">
+
+    <div class="products-container">
+      <h2 class="products-section__title">TOP SELLING</h2>
+
+      <div class="products-grid" id="top-selling-grid">
+      </div>
+
+      <button class="products-section__btn" id="top-selling-btn">
+        View All
+      </button>
+    </div>
+
+  </section>
+  <section class="dress-style">
+    <div class="dress-style__card">
+      <h2 class="dress-style__title">BROWSE BY DRESS STYLE</h2>
+
+      <div class="dress-style__grid">
+        <div class="style-card style-card--small">
+          <h3 class="style-card__title">Casual</h3>
+          <img src="./assets/images/background-images/casual-1.png" alt="Casual Style" class="style-card__image">
+        </div>
+        <div class="style-card style-card--large">
+          <h3 class="style-card__title">Formal</h3>
+          <img src="./assets/images/background-images/formal-1.png" alt="Formal Style" class="style-card__image">
+        </div>
+        <div class="style-card style-card--large">
+          <h3 class="style-card__title">Party</h3>
+          <img src="./assets/images/background-images/party-1.png" alt="Party Style" class="style-card__image">
+        </div>
+        <div class="style-card style-card--small">
+          <h3 class="style-card__title">Gym</h3>
+          <img src="./assets/images/background-images/gym-1.png" alt="Gym Style" class="style-card__image">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <div class="testimonials__header">
+      <h2 class="testimonials__title">OUR HAPPY CUSTOMERS</h2>
+      <div class="testimonials__arrows">
+        <button class="testimonials__arrow testimonials__arrow--prev" aria-label="Previous testimonial">&larr;</button>
+        <button class="testimonials__arrow testimonials__arrow--next" aria-label="Next testimonial">&rarr;</button>
+      </div>
+    </div>
+
+    <div class="testimonials__wrapper">
+      <div class="testimonials__overlay testimonials__overlay--left"></div>
+
+      <div class="testimonials__track">
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">
+            <img src="" alt="5 stars" class="testimonial-card__star-img">
+          </div>
+          <div class="testimonial-card__author">
+            <span class="name">Emily R.</span>
+            <span class="verified-icon">✓</span>
+          </div>
+          <p class="testimonial-card__text">
+            "The selection of clothes is not only diverse but also on-point with the latest trends. Highly recommend!"
+          </p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">
+            <img src="" alt="5 stars" class="testimonial-card__star-img">
+          </div>
+          <div class="testimonial-card__author">
+            <span class="name">Sarah M.</span>
+            <span class="verified-icon">✓</span>
+          </div>
+          <p class="testimonial-card__text">
+            "I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant
+            dresses, every piece I've bought has exceeded my expectations."
+          </p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">
+            <img src="" alt="5 stars" class="testimonial-card__star-img">
+          </div>
+          <div class="testimonial-card__author">
+            <span class="name">Alex K.</span>
+            <span class="verified-icon">✓</span>
+          </div>
+          <p class="testimonial-card__text">
+            "Finding clothes that align with my personal style used to be a challenge until I discovered Shop.co. The
+            range of options they offer is truly remarkable, catering to a variety of tastes and occasions."
+          </p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">
+            <img src="" alt="5 stars" class="testimonial-card__star-img">
+          </div>
+          <div class="testimonial-card__author">
+            <span class="name">James L.</span>
+            <span class="verified-icon">✓</span>
+          </div>
+          <p class="testimonial-card__text">
+            "As someone who's always on the lookout for unique fashion pieces, I'm thrilled to have stumbled upon
+            Shop.co. The selection of clothes is not only diverse but also on-point with the latest trends."
+          </p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card__stars">
+            <img src="" alt="5 stars" class="testimonial-card__star-img">
+          </div>
+          <div class="testimonial-card__author">
+            <span class="name">Mooen</span>
+            <span class="verified-icon">✓</span>
+          </div>
+          <p class="testimonial-card__text">
+            "As someone who's always on the lookout for unique fashion pieces, I'm thrilled to have stumbled upon
+            Shop.co."
+          </p>
+        </div>
+      </div>
+
+      <div class="testimonials__overlay testimonials__overlay--right"></div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="footer__container">
+
+      <div class="newsletter-card">
+        <h2 class="newsletter-card__title">
+          STAY UPTO DATE ABOUT<br>OUR LATEST OFFERS
+        </h2>
+        <div class="newsletter-card__form">
+          <div class="newsletter-card__input-wrapper">
+            <img src="./assets/icons/mail-icon.svg" alt="Mail Icon" class="input-icon">
+            <input type="email" placeholder="Enter your email address" class="newsletter-card__input">
+          </div>
+          <button type="button" class="newsletter-card__btn">Subscribe to Newsletter</button>
+        </div>
+      </div>
+
+      <div class="footer__main">
+        <div class="footer__brand">
+          <h2 class="footer__logo">SHOP.CO</h2>
+          <p class="footer__desc">
+            We have clothes that suits your style and which you're proud to wear. From women to men.
+          </p>
+          <div class="footer__socials">
+            <a href="#" class="social-link" aria-label="Twitter">
+              <img src="./assets/icons/twitter-icon.svg" alt="Twitter" class="social-icon">
+            </a>
+            <a href="#" class="social-link social-link--active" aria-label="Facebook">
+              <img src="./assets/icons/facebook-icon.svg" alt="Facebook" class="social-icon">
+            </a>
+            <a href="#" class="social-link" aria-label="Instagram">
+              <img src="./assets/icons/instagram-icon.svg" alt="Instagram" class="social-icon">
+            </a>
+            <a href="#" class="social-link" aria-label="GitHub">
+              <img src="./assets/icons/github-icon.svg" alt="GitHub" class="social-icon">
+            </a>
+          </div>
+        </div>
+
+        <div class="footer__col">
+          <h3 class="footer__col-title">COMPANY</h3>
+          <ul class="footer__links">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Works</a></li>
+            <li><a href="#">Career</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h3 class="footer__col-title">HELP</h3>
+          <ul class="footer__links">
+            <li><a href="#">Customer Support</a></li>
+            <li><a href="#">Delivery Details</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h3 class="footer__col-title">FAQ</h3>
+          <ul class="footer__links">
+            <li><a href="#">Account</a></li>
+            <li><a href="#">Manage Deliveries</a></li>
+            <li><a href="#">Orders</a></li>
+            <li><a href="#">Payments</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h3 class="footer__col-title">RESOURCES</h3>
+          <ul class="footer__links">
+            <li><a href="#">Free eBooks</a></li>
+            <li><a href="#">Development Tutorial</a></li>
+            <li><a href="#">How to - Blog</a></li>
+            <li><a href="#">Youtube Playlist</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <hr class="footer__divider">
+
+      <div class="footer__bottom">
+        <p class="footer__copyright">
+          Shop.co © 2000-2023, All Rights Reserved
+        </p>
+        <div class="footer__payments">
+          <span class="payment-badge">
+            <img src="./assets/icons/visa-icon.svg" alt="Visa" class="payment-icon">
+          </span>
+          <span class="payment-badge">
+            <img src="./assets/icons/mastercard-icon.svg" alt="MasterCard" class="payment-icon">
+          </span>
+          <span class="payment-badge">
+            <img src="./assets/icons/paypal-icon.svg" alt="PayPal" class="payment-icon">
+          </span>
+          <span class="payment-badge">
+            <img src="./assets/icons/apple-pay-icon.svg" alt="Apple Pay" class="payment-icon">
+          </span>
+          <span class="payment-badge">
+            <img src="./assets/icons/google-pay-icon.svg" alt="Google Pay" class="payment-icon">
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+<script src="./js/products.js"></script>
+
+</html>

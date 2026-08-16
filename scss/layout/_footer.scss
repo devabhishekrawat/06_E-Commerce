@@ -1,0 +1,241 @@
+@use "../abstracts/variables.scss" as *;
+
+.footer {
+    background-color: #f0eeed;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+    margin-top: 90px;
+    position: relative;
+
+    &__container {
+        max-width: 84%;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+
+    &__main {
+        display: grid;
+        grid-template-columns: 2fr repeat(4, 1fr);
+        gap: 2rem;
+        margin-top: 3rem;
+
+        @media (max-width: 1024px) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        @media (max-width: 640px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    &__brand {
+        @media (max-width: 1024px) {
+            grid-column: span 3;
+        }
+
+        @media (max-width: 640px) {
+            grid-column: span 2;
+        }
+    }
+
+    &__logo {
+        font-family: Integral CF;
+        font-weight: 700;
+        font-size: 2rem;
+        line-height: 45px;
+        letter-spacing: 0%;
+        margin-bottom: 1.25rem;
+
+    }
+
+    &__desc {
+        font-family: "Satoshi";
+        font-size: 0.9rem;
+        color: rgba(0, 0, 0, 0.6);
+        line-height: 1.6;
+        max-width: 250px;
+        margin-bottom: 1.5rem;
+    }
+
+    &__socials {
+        display: flex;
+        gap: 0.75rem;
+
+        .social-link {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #fff;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.2s ease;
+
+            .social-icon {
+                width: 14px;
+                height: 14px;
+                object-fit: contain;
+            }
+
+            &:hover,
+            &--active {
+                background: #000;
+
+                .social-icon {
+                    filter: brightness(0) invert(1);
+                }
+            }
+        }
+    }
+
+    &__col-title {
+        font-family: "Satoshi";
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: 2px;
+        margin-bottom: 1.5rem;
+        text-transform: uppercase;
+    }
+
+    &__links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+
+        a {
+            color: rgba(0, 0, 0, 0.6);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+
+            &:hover {
+                color: #000;
+            }
+        }
+    }
+
+    &__divider {
+        border: none;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        margin: 2.5rem 0 1.5rem 0;
+    }
+
+    &__bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    &__copyright {
+        font-size: 0.85rem;
+        color: rgba(0, 0, 0, 0.6);
+    }
+
+    &__payments {
+        display: flex;
+        gap: 0.6rem;
+
+        .payment-badge {
+            background: #fff;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 30px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+
+            .payment-icon {
+                height: 14px;
+                width: auto;
+                object-fit: contain;
+            }
+        }
+    }
+}
+
+.newsletter-card {
+    background-color: #000;
+    border-radius: 20px;
+    padding: 2.5rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -110px;
+    position: relative;
+    z-index: 4;
+
+    @media (max-width: 900px) {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem 1.5rem;
+        text-align: center;
+    }
+
+    &__title {
+        font-family: "Integral CF";
+        font-weight: 700;
+        font-size: 2rem;
+        line-height: 45px;
+        letter-spacing: 0%;
+        color: $color-white;
+
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        width: 100%;
+        max-width: 350px;
+    }
+
+    &__input-wrapper {
+        position: relative;
+        width: 100%;
+
+        .input-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 18px;
+            height: 18px;
+            object-fit: contain;
+            opacity: 0.4;
+        }
+    }
+
+    &__input {
+        width: 100%;
+        padding: 0.75rem 1rem 0.75rem 2.8rem;
+        border-radius: 62px;
+        border: none;
+        font-size: 0.9rem;
+        outline: none;
+    }
+
+    &__btn {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border-radius: 62px;
+        border: none;
+        background-color: #fff;
+        color: #000;
+        font-weight: 600;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: background 0.2s ease;
+
+        &:hover {
+            background-color: #f0f0f0;
+        }
+    }
+}
