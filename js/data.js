@@ -18,7 +18,7 @@ export const products1 = [
         id: 2,
         name: "Slim Fit Jeans",
         price: 150,
-        image: "../assets/images/product-images/jeans-1.png",
+        image: "./assets/images/product-images/jeans-1.png",
         description: "Modern slim-fit jeans designed for comfort and style.",
         reviews: [
             { user: "Michael Smith", rating: 5, message: "The fit is perfect and the denim quality is excellent.", date: "2026-06-25" },
@@ -33,7 +33,7 @@ export const products1 = [
         id: 3,
         name: "Checkered Shirt",
         price: 120,
-        image: "../assets/images/product-images/shirt-1.png",
+        image: "./assets/images/product-images/shirt-1.png",
         description: "A soft and warm hoodie perfect for casual outfits.",
         reviews: [
             { user: "Chris Anderson", rating: 5, message: "Super comfortable hoodie.", date: "2026-07-10" },
@@ -49,7 +49,7 @@ export const products1 = [
         id: 4,
         name: "Sleeve Striped T-Shirt",
         price: 180,
-        image: "../assets/images/product-images/tshirt-2.png",
+        image: "./assets/images/product-images/tshirt-2.png",
         description: "A timeless denim jacket for casual looks.",
         reviews: [
             { user: "Noah Martinez", rating: 4, message: "Amazing jacket with great denim quality.", date: "2026-06-30" },
@@ -63,7 +63,7 @@ export const products1 = [
         id: 5,
         name: "Polo Shirt",
         price: 90,
-        image: "../assets/images/product-images/tshirt-1.png",
+        image: "./assets/images/product-images/tshirt-1.png",
         description: "A clean and versatile polo shirt for everyday occasions.",
         reviews: [
             { user: "Liam Lewis", rating: 5, message: "Excellent polo shirt and very comfortable.", date: "2026-07-05" },
