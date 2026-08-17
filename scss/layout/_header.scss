@@ -374,3 +374,33 @@
 .header__logout-btn:hover {
     background-color: $color-background-soft;
 }
+
+
+.header__action-btn {
+    position: relative;
+}
+
+.cart-count {
+    position: absolute;
+    top: -0.4rem;
+    right: -0.5rem;
+
+    min-width: 1.1rem;
+    height: 1.1rem;
+
+    padding: 0 0.25rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: $color-dark;
+    color: $color-white;
+
+    border-radius: 50%;
+
+    font-family: "Satoshi";
+    font-size: 0.65rem;
+    font-weight: 700;
+    line-height: 1;
+}

@@ -1,4 +1,5 @@
 import { products1, products2, testimonials } from "./data.js";
+import { cartHeader } from "./header.js";
 
 const user = JSON.parse(sessionStorage.getItem("user"));
 const newArrivalsGrid = document.querySelector("#new-arrivals-grid");
@@ -26,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
     const product = allProducts.find((p) => String(p.id) === String(productId)) || allProducts[0];
-
+    cartHeader()
     if (product) {
         renderProductDetails(product);
         renderProducts(products1, newArrivalsGrid, newArrivalsBtn)
@@ -38,15 +39,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function renderProductDetails(product) {
     document.querySelector(".product-detail__title").textContent =
-        product.name  || "ONE LIFE GRAPHIC T-SHIRT";
+        product.name || "ONE LIFE GRAPHIC T-SHIRT";
 
     document.querySelector(".product-detail__desc").textContent =
         product.description || "This graphic t-shirt is perfect for any occasion.";
 
     let avgRating = 0;
+
     if (Array.isArray(product.reviews) && product.reviews.length > 0) {
-        const totalRating = product.reviews.reduce((sum, review) => sum + review.rating, 0);
-        avgRating = (totalRating / product.reviews.length).toFixed(1);
+        const totalRating = product.reviews.reduce(
+            (sum, review) => sum + Number(review.rating || 0),
+            0
+        );
+
+        const average = totalRating / product.reviews.length;
+
+        avgRating = Math.floor(average * 2) / 2;
     }
 
     document.querySelector(".rating-score").textContent = `${avgRating}/5`;
@@ -350,7 +358,9 @@ function getAverageRating(reviews) {
         0
     );
 
-    return total / reviews.length;
+    const average = total / reviews.length;
+
+    return Math.floor(average * 2) / 2;
 }
 function createStars(rating) {
     const fullStars = Math.floor(rating);

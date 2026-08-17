@@ -1,4 +1,5 @@
 import { products1, products2, testimonials } from "./data.js";
+import { cartHeader } from "./header.js";
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -8,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     hamburger.addEventListener("click", () => {
         nav.classList.toggle("header__nav--open");
     });
-
+    cartHeader()
     renderProducts(
         products1,
         newArrivalsGrid,

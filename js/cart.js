@@ -1,4 +1,5 @@
 import { products1, products2, testimonials } from "./data.js";
+import { cartHeader } from "./header.js";
 
 const user = JSON.parse(sessionStorage.getItem("user"));
 
@@ -26,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
             banner.style.display = "none";
         });
     }
-
+    cartHeader()
     renderCart();
     setupPromoCode();
     setupCheckout();
