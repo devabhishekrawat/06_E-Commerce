@@ -46,14 +46,14 @@ ul {
 .top-banner__text {
   font-family: "Satoshi";
   text-align: center;
-  color: white;
+  color: #fff;
 }
 
 .top-banner__link {
   text-decoration: underline;
   font-weight: bold;
   margin-left: 4px;
-  color: white;
+  color: #fff;
 }
 
 .top-banner__close {
@@ -318,6 +318,45 @@ ul {
     padding: 8px 16px;
   }
 }
+.header__profile {
+  position: relative;
+}
+
+.header__profile-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  display: none;
+  min-width: 140px;
+  padding: 8px;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+.header__profile:hover .header__profile-dropdown {
+  display: flex;
+  flex-direction: column;
+}
+
+.header__profile-link,
+.header__logout-btn {
+  padding: 10px 12px;
+  border: none;
+  background: none;
+  color: #333;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.header__profile-link:hover,
+.header__logout-btn:hover {
+  background-color: #f0eeed;
+}
+
 .footer {
   background-color: #f0eeed;
   padding-top: 2rem;
@@ -444,6 +483,11 @@ ul {
   display: flex;
   gap: 0.6rem;
 }
+@media (max-width: 350px) {
+  .footer__payments {
+    gap: 0;
+  }
+}
 .footer__payments .payment-badge {
   background: #fff;
   padding: 0.4rem 0.8rem;
@@ -485,7 +529,7 @@ ul {
   font-size: 2rem;
   line-height: 45px;
   letter-spacing: 0%;
-  color: white;
+  color: #fff;
 }
 .newsletter-card__form {
   display: flex;

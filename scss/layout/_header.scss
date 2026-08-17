@@ -314,3 +314,49 @@
         padding: 8px 16px;
     }
 }
+
+
+.header__profile {
+    position: relative;
+}
+
+.header__profile-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+
+    display: none;
+    min-width: 140px;
+
+    padding: 8px;
+    background-color: $color-white;
+    border: 1px solid $color-border;
+    border-radius: $radius-card;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+.header__profile:hover .header__profile-dropdown {
+    display: flex;
+    flex-direction: column;
+}
+
+.header__profile-link,
+.header__logout-btn {
+    padding: 10px 12px;
+
+    border: none;
+    background: none;
+
+    color: $color-text;
+    text-align: left;
+    text-decoration: none;
+
+    cursor: pointer;
+}
+
+.header__profile-link:hover,
+.header__logout-btn:hover {
+    background-color: $color-background-soft;
+}

@@ -24,6 +24,7 @@
         <img src="./assets/icons/humburger.svg" alt="Menu">
       </button>
 
+
       <a href="#" class="header__logo">SHOP.CO</a>
 
       <nav class="header__nav">
@@ -44,7 +45,21 @@
       <div class="header__actions">
         <a href="./cart.html" class="header__action-btn" aria-label="Cart"><img src="./assets/icons/cart-icon.svg"
             alt="cart icon"></a>
-        <a class="header__action-btn" aria-label="Account"><img src="./assets/icons/user-icon.svg" alt="user"></a>
+        <div class="header__profile">
+          <button class="header__action-btn" aria-label="Account">
+            <img src="./assets/icons/user-icon.svg" alt="user">
+          </button>
+
+          <div class="header__profile-dropdown">
+            <a href="./profile.html" class="header__profile-link">
+              Profile
+            </a>
+
+            <button class="header__logout-btn">
+              Logout
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </header>

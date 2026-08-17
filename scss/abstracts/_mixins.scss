@@ -1,0 +1,21 @@
+@use "./variables.scss" as *;
+
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin button {
+    border: none;
+    border-radius: $radius-pill;
+    background-color: $color-dark;
+    color: $color-white;
+    cursor: pointer;
+}
+
+@mixin card {
+    border: 1px solid $color-border;
+    border-radius: $radius-card;
+}
+

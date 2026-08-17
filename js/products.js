@@ -22,6 +22,14 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     renderTestimonials();
+
+    const logoutBtn = document.querySelector(".header__logout-btn");
+
+    logoutBtn?.addEventListener("click", () => {
+        sessionStorage.removeItem("user");
+
+        window.location.href = "./login.html";
+    });
 });
 
 
@@ -34,20 +42,32 @@ const topSellingBtn = document.querySelector("#top-selling-btn");
 
 
 function createStars(rating) {
-
-    const roundedRating = Math.round(rating);
+    const fullStars = Math.floor(rating);
+    const hasHalfStar = rating % 1 >= 0.5;
 
     let stars = "";
 
-    for (let i = 1; i <= 5; i++) {
-        if (i <= roundedRating) {
-            stars += "★";
-        } else {
-            stars += "☆";
-        }
+    for (let i = 0; i < fullStars; i++) {
+        stars += `
+            <img
+                src="./assets/icons/Star.svg"
+                alt="Star"
+                class="product-card__star-img">
+        `;
     }
+
+    if (hasHalfStar) {
+        stars += `
+            <img
+                src="./assets/icons/halfStar.svg"
+                alt="Half Star"
+                class="product-card__star-img">
+        `;
+    }
+
     return stars;
 }
+
 
 
 function getAverageRating(reviews) {
@@ -110,7 +130,7 @@ function createProductCard(product) {
 
     stars.classList.add("stars");
 
-    stars.textContent =
+    stars.innerHTML =
         createStars(averageRating);
     const score =
         document.createElement("span");
@@ -263,22 +283,10 @@ document.addEventListener("DOMContentLoaded", () => {
     closeButton.addEventListener("click", () => {
         banner.style.display = "none";
     });
+
+
 });
 
-
-
-renderProducts(
-    products1,
-    newArrivalsGrid,
-    newArrivalsBtn
-);
-
-
-renderProducts(
-    products2,
-    topSellingGrid,
-    topSellingBtn
-);
 
 
 function renderTestimonials() {

@@ -3,7 +3,7 @@ export const products1 = [
         id: 1,
         name: "Classic T-Shirt",
         price: 100,
-        image: "./assets/images/product-1.jpg",
+        image: "../assets/images/product-images/tshirt-1.png",
         description: "A comfortable classic cotton t-shirt for everyday wear.",
         reviews: [
             { user: "Alex Johnson", rating: 3, message: "Great quality and very comfortable.", date: "2026-07-12" },
@@ -17,7 +17,7 @@ export const products1 = [
         id: 2,
         name: "Slim Fit Jeans",
         price: 150,
-        image: "./assets/images/product-2.jpg",
+        image: "../assets/images/product-images/jeans-1.png",
         description: "Modern slim-fit jeans designed for comfort and style.",
         reviews: [
             { user: "Michael Smith", rating: 5, message: "The fit is perfect and the denim quality is excellent.", date: "2026-06-25" },
@@ -30,9 +30,9 @@ export const products1 = [
 
     {
         id: 3,
-        name: "Casual Hoodie",
+        name: "Checkered Shirt",
         price: 120,
-        image: "./assets/images/product-3.jpg",
+        image: "../assets/images/product-images/shirt-1.png",
         description: "A soft and warm hoodie perfect for casual outfits.",
         reviews: [
             { user: "Chris Anderson", rating: 5, message: "Super comfortable hoodie.", date: "2026-07-10" },
@@ -46,9 +46,9 @@ export const products1 = [
 
     {
         id: 4,
-        name: "Denim Jacket",
+        name: "Sleeve Striped T-Shirt",
         price: 180,
-        image: "./assets/images/product-4.jpg",
+        image: "../assets/images/product-images/tshirt-2.png",
         description: "A timeless denim jacket for casual looks.",
         reviews: [
             { user: "Noah Martinez", rating: 4, message: "Amazing jacket with great denim quality.", date: "2026-06-30" },
@@ -62,7 +62,7 @@ export const products1 = [
         id: 5,
         name: "Polo Shirt",
         price: 90,
-        image: "./assets/images/product-5.jpg",
+        image: "../assets/images/product-images/tshirt-1.png",
         description: "A clean and versatile polo shirt for everyday occasions.",
         reviews: [
             { user: "Liam Lewis", rating: 5, message: "Excellent polo shirt and very comfortable.", date: "2026-07-05" },
@@ -77,7 +77,7 @@ export const products1 = [
         id: 6,
         name: "Cargo Pants",
         price: 140,
-        image: "./assets/images/product-6.jpg",
+        image: "../assets/images/product-images/jeans-1.png",
         description: "Comfortable cargo pants with a modern relaxed fit.",
         reviews: [
             { user: "Lucas Young", rating: 5, message: "Love these cargo pants. Great fit.", date: "2026-06-28" },
@@ -91,7 +91,7 @@ export const products1 = [
         id: 7,
         name: "Oversized Shirt",
         price: 110,
-        image: "./assets/images/product-7.jpg",
+        image: "../assets/images/product-images/tshirt-3.png",
         description: "A relaxed oversized shirt with a modern streetwear look.",
         reviews: [
             { user: "Isabella Scott", rating: 5, message: "The oversized fit is exactly what I wanted.", date: "2026-07-08" },
@@ -104,12 +104,12 @@ export const products1 = [
 ];
 
 
- export const products2 = [
+export const products2 = [
     {
         id: 8,
-        name: "Leather Jacket",
+        name: "Vertical Striped Shirt",
         price: 250,
-        image: "./assets/images/product-8.jpg",
+        image: "../assets/images/product-images/shirt-2.png",
         description: "A premium-style leather jacket for a bold classic look.",
         reviews: [
             { user: "Jack Adams", rating: 5, message: "Fantastic jacket. It looks premium.", date: "2026-06-20" },
@@ -121,9 +121,9 @@ export const products1 = [
 
     {
         id: 9,
-        name: "Classic Chinos",
+        name: "COURAGE GRAPHIC T-SHIRT",
         price: 130,
-        image: "./assets/images/product-9.jpg",
+        image: "../assets/images/product-images/tshirt-3.png",
         description: "Versatile chinos designed for both casual and smart outfits.",
         reviews: [
             { user: "Ethan Adams", rating: 5, message: "Very comfortable and easy to style.", date: "2026-07-03" },
@@ -136,9 +136,9 @@ export const products1 = [
 
     {
         id: 10,
-        name: "Graphic Sweatshirt",
+        name: "LOOSE FIT BERMUDA SHORTS",
         price: 115,
-        image: "./assets/images/product-10.jpg",
+        image: "../assets/images/product-images/shorts-1.png",
         description: "A stylish graphic sweatshirt with a comfortable relaxed fit.",
         reviews: [
             { user: "Oliver Brown", rating: 5, message: "Love the graphic and the sweatshirt is very soft.", date: "2026-07-06" },
@@ -150,9 +150,9 @@ export const products1 = [
 
     {
         id: 11,
-        name: "Relaxed Fit Shorts",
+        name: "FADED SKINNY JEANS",
         price: 80,
-        image: "./assets/images/product-11.jpg",
+        image: "../assets/images/product-images/jeans-2.png",
         description: "Lightweight relaxed-fit shorts for comfortable everyday wear.",
         reviews: [
             { user: "Henry Taylor", rating: 5, message: "Very comfortable shorts for summer.", date: "2026-06-29" },
@@ -167,7 +167,7 @@ export const products1 = [
         id: 12,
         name: "Premium Knit Sweater",
         price: 190,
-        image: "./assets/images/product-12.jpg",
+        image: "../assets/images/product-images/shirt-2.png",
         description: "A premium knit sweater with a soft and comfortable finish.",
         reviews: [
             { user: "Sophia Williams", rating: 5, message: "Beautiful sweater and very soft.", date: "2026-07-01" },
@@ -182,7 +182,7 @@ export const products1 = [
         id: 13,
         name: "Minimalist Overshirt",
         price: 160,
-        image: "./assets/images/product-13.jpg",
+        image: "../assets/images/product-images/tshirt-2.png",
         description: "A minimalist overshirt designed for clean and modern outfits.",
         reviews: [
             { user: "Daniel Taylor", rating: 5, message: "Simple design but looks really stylish.", date: "2026-07-09" },
@@ -194,7 +194,7 @@ export const products1 = [
     }
 ];
 
- export const testimonials = [
+export const testimonials = [
     {
         id: 1,
         name: "Alex Johnson",
