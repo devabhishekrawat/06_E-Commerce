@@ -1,9 +1,10 @@
+
 export const products1 = [
     {
         id: 1,
         name: "Classic T-Shirt",
         price: 100,
-        image: "../assets/images/product-images/tshirt-1.png",
+        image: "./assets/images/product-images/tshirt-1.png",
         description: "A comfortable classic cotton t-shirt for everyday wear.",
         reviews: [
             { user: "Alex Johnson", rating: 3, message: "Great quality and very comfortable.", date: "2026-07-12" },
