@@ -1,6 +1,6 @@
 .login {
     min-height: 100vh;
-    background-color: #f2f0f1;
+    background-color: $color-background-hero;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -11,7 +11,7 @@
         max-width: 1100px;
         min-height: 650px;
 
-        background-color: #ffffff;
+        background-color: $color-background;
         border-radius: 24px;
 
         overflow: hidden;
@@ -39,12 +39,11 @@
         }
     }
 
-
     &__brand {
         font-family: "Integral CF";
         font-size: 1.7rem;
         font-weight: 900;
-        color: #000;
+        color: $color-dark;
         margin-bottom: 5rem;
 
         @media (max-width: 768px) {
@@ -52,11 +51,9 @@
         }
     }
 
-
     &__header {
         margin-bottom: 2rem;
     }
-
 
     &__title {
         font-family: "Integral CF";
@@ -64,7 +61,7 @@
         line-height: 1.1;
         font-weight: 900;
         letter-spacing: -1px;
-        color: #000;
+        color: $color-dark;
         margin-bottom: 1rem;
 
         @media (max-width: 480px) {
@@ -74,11 +71,9 @@
 
     &__description {
         max-width: 420px;
-
         font-size: 0.95rem;
         line-height: 1.6;
-
-        color: #666666;
+        color: $color-text-muted;
     }
 
     &__form {
@@ -87,13 +82,11 @@
         gap: 1.4rem;
     }
 
-
     &__field {
         display: flex;
         flex-direction: column;
         gap: 0.6rem;
     }
-
 
     &__label-row {
         display: flex;
@@ -101,35 +94,29 @@
         align-items: center;
     }
 
-
     &__label {
         font-size: 0.9rem;
         font-weight: 600;
-        color: #000;
+        color: $color-dark;
     }
-
 
     &__forgot {
         font-size: 0.8rem;
-        color: #666666;
+        color: $color-text-muted;
         text-decoration: underline;
 
         transition: color 0.2s ease;
 
         &:hover {
-            color: #000;
+            color: $color-dark;
         }
     }
 
-
     &__input {
         width: 100%;
-
-        border: 1px solid rgba(0, 0, 0, 0.15);
+        border: 1px solid $color-border-dark;
         border-radius: 62px;
-
-        background-color: #f0eeed;
-
+        background-color: $color-background-soft;
         padding: 1rem 1.2rem;
 
         font-family: "Satoshi";
@@ -142,34 +129,30 @@
             background-color 0.2s ease;
 
         &::placeholder {
-            color: rgba(0, 0, 0, 0.4);
+            color: $color-text-faded;
         }
 
         &:focus {
-            border-color: #000;
-            background-color: #fff;
+            border-color: $color-dark;
+            background-color: $color-background;
         }
     }
 
     &__error {
         min-height: 20px;
-
         margin: -0.5rem 0 0;
-
         font-size: 0.85rem;
-        color: #ff3333;
+        color: $color-danger;
     }
 
     &__button {
         width: 100%;
-
         border: none;
         border-radius: 62px;
-
         padding: 1rem;
 
-        background-color: #000;
-        color: #fff;
+        background-color: $color-dark;
+        color: $color-white;
 
         font-family: "Satoshi";
         font-size: 1rem;
@@ -182,7 +165,7 @@
             transform 0.2s ease;
 
         &:hover {
-            background-color: #222;
+            background-color: $color-text;
             transform: translateY(-1px);
         }
 
@@ -193,14 +176,12 @@
 
     &__signup {
         margin-top: 1.8rem;
-
         text-align: center;
-
         font-size: 0.9rem;
-        color: #666666;
+        color: $color-text-muted;
 
         a {
-            color: #000;
+            color: $color-dark;
             font-weight: 700;
             text-decoration: underline;
         }
@@ -208,10 +189,8 @@
 
     &__visual {
         position: relative;
-
         min-height: 650px;
-
-        background-color: #f2f0f1;
+        background-color: $color-background-hero;
 
         display: flex;
         align-items: center;
@@ -226,11 +205,8 @@
 
     &__visual-content {
         position: relative;
-
         max-width: 400px;
-
         padding: 2rem;
-
         text-align: center;
 
         h2 {
@@ -241,8 +217,7 @@
             font-size: 3.2rem;
             line-height: 1.05;
 
-            color: #000;
-
+            color: $color-dark;
             margin-bottom: 1.5rem;
         }
 
@@ -252,32 +227,26 @@
 
             font-size: 1rem;
             line-height: 1.6;
-
-            color: #666666;
+            color: $color-text-muted;
         }
     }
+
     &__star {
         position: absolute;
-
-        color: #000;
-
+        color: $color-dark;
         z-index: 1;
-
         line-height: 1;
     }
 
     &__star--large {
         top: -70px;
         right: -30px;
-
         font-size: 120px;
     }
-
 
     &__star--small {
         bottom: -80px;
         left: -30px;
-
         font-size: 100px;
     }
 }
