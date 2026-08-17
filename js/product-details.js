@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function renderProductDetails(product) {
     document.querySelector(".product-detail__title").textContent =
-        product.name || product.title || "ONE LIFE GRAPHIC T-SHIRT";
+        product.name  || "ONE LIFE GRAPHIC T-SHIRT";
 
     document.querySelector(".product-detail__desc").textContent =
         product.description || "This graphic t-shirt is perfect for any occasion.";
