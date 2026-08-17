@@ -78,7 +78,7 @@ export const products1 = [
         id: 6,
         name: "Cargo Pants",
         price: 140,
-        image: "../assets/images/product-images/jeans-1.png",
+        image: "./assets/images/product-images/jeans-1.png",
         description: "Comfortable cargo pants with a modern relaxed fit.",
         reviews: [
             { user: "Lucas Young", rating: 5, message: "Love these cargo pants. Great fit.", date: "2026-06-28" },
@@ -92,7 +92,7 @@ export const products1 = [
         id: 7,
         name: "Oversized Shirt",
         price: 110,
-        image: "../assets/images/product-images/tshirt-3.png",
+        image: "./assets/images/product-images/tshirt-3.png",
         description: "A relaxed oversized shirt with a modern streetwear look.",
         reviews: [
             { user: "Isabella Scott", rating: 5, message: "The oversized fit is exactly what I wanted.", date: "2026-07-08" },
@@ -110,7 +110,7 @@ export const products2 = [
         id: 8,
         name: "Vertical Striped Shirt",
         price: 250,
-        image: "../assets/images/product-images/shirt-2.png",
+        image: "./assets/images/product-images/shirt-2.png",
         description: "A premium-style leather jacket for a bold classic look.",
         reviews: [
             { user: "Jack Adams", rating: 5, message: "Fantastic jacket. It looks premium.", date: "2026-06-20" },
@@ -124,7 +124,7 @@ export const products2 = [
         id: 9,
         name: "COURAGE GRAPHIC T-SHIRT",
         price: 130,
-        image: "../assets/images/product-images/tshirt-3.png",
+        image: "./assets/images/product-images/tshirt-3.png",
         description: "Versatile chinos designed for both casual and smart outfits.",
         reviews: [
             { user: "Ethan Adams", rating: 5, message: "Very comfortable and easy to style.", date: "2026-07-03" },
@@ -139,7 +139,7 @@ export const products2 = [
         id: 10,
         name: "LOOSE FIT BERMUDA SHORTS",
         price: 115,
-        image: "../assets/images/product-images/shorts-1.png",
+        image: "./assets/images/product-images/shorts-1.png",
         description: "A stylish graphic sweatshirt with a comfortable relaxed fit.",
         reviews: [
             { user: "Oliver Brown", rating: 5, message: "Love the graphic and the sweatshirt is very soft.", date: "2026-07-06" },
@@ -153,7 +153,7 @@ export const products2 = [
         id: 11,
         name: "FADED SKINNY JEANS",
         price: 80,
-        image: "../assets/images/product-images/jeans-2.png",
+        image: "./assets/images/product-images/jeans-2.png",
         description: "Lightweight relaxed-fit shorts for comfortable everyday wear.",
         reviews: [
             { user: "Henry Taylor", rating: 5, message: "Very comfortable shorts for summer.", date: "2026-06-29" },
@@ -168,7 +168,7 @@ export const products2 = [
         id: 12,
         name: "Premium Knit Sweater",
         price: 190,
-        image: "../assets/images/product-images/shirt-2.png",
+        image: "./assets/images/product-images/shirt-2.png",
         description: "A premium knit sweater with a soft and comfortable finish.",
         reviews: [
             { user: "Sophia Williams", rating: 5, message: "Beautiful sweater and very soft.", date: "2026-07-01" },
@@ -183,7 +183,7 @@ export const products2 = [
         id: 13,
         name: "Minimalist Overshirt",
         price: 160,
-        image: "../assets/images/product-images/tshirt-2.png",
+        image: "./assets/images/product-images/tshirt-2.png",
         description: "A minimalist overshirt designed for clean and modern outfits.",
         reviews: [
             { user: "Daniel Taylor", rating: 5, message: "Simple design but looks really stylish.", date: "2026-07-09" },
