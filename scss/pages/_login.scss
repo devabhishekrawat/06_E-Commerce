@@ -1,3 +1,5 @@
+@use "../abstracts/variables.scss" as *;
+
 .login {
     min-height: 100vh;
     background-color: $color-background-hero;
