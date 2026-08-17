@@ -43,5 +43,5 @@ loginForm.addEventListener("submit", function (event) {
 
     loginError.textContent = "";
     alert("Login successful!");
-    window.location.href = "../index.html"
+    window.location.href = "./index.html"
 });
