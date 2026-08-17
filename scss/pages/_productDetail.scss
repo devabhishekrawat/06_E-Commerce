@@ -1,3 +1,5 @@
+@use "../abstracts/variables.scss" as *;
+
 .product-page {
     padding: 1.5rem 0 4rem 0;
     width: 100%;
@@ -14,26 +16,26 @@
     align-items: center;
     gap: 0.5rem;
     font-size: 0.9rem;
-    color: rgba(0, 0, 0, 0.6);
+    color: $color-text-light;
     margin-bottom: 2rem;
 
     a {
-        color: rgba(0, 0, 0, 0.6);
+        color: $color-text-light;
         text-decoration: none;
         transition: color 0.2s ease;
 
         &:hover {
-            color: #000;
+            color: $color-dark;
         }
     }
 
     &__separator {
         font-size: 0.8rem;
-        color: rgba(0, 0, 0, 0.4);
+        color: $color-text-faded;
     }
 
     &__current {
-        color: #000;
+        color: $color-dark;
         font-weight: 500;
     }
 }
@@ -85,7 +87,7 @@
 
         .rating-score {
             font-size: 0.9rem;
-            color: rgba(0, 0, 0, 0.6);
+            color: $color-text-light;
         }
     }
 
@@ -98,19 +100,19 @@
         .price-current {
             font-size: 1.75rem;
             font-weight: 700;
-            color: #000;
+            color: $color-dark;
         }
 
         .price-original {
             font-size: 1.75rem;
             font-weight: 700;
-            color: rgba(0, 0, 0, 0.3);
+            color: $color-text-faded;
             text-decoration: line-through;
         }
 
         .price-discount {
             background: rgba(255, 51, 51, 0.1);
-            color: #ff3333;
+            color: $color-danger;
             padding: 0.2rem 0.6rem;
             border-radius: 62px;
             font-size: 0.85rem;
@@ -120,7 +122,7 @@
 
     &__desc {
         font-size: 0.95rem;
-        color: rgba(0, 0, 0, 0.6);
+        color: $color-text-light;
         line-height: 1.5;
         margin-bottom: 1.25rem;
     }
@@ -128,14 +130,14 @@
 
 .divider {
     border: none;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-top: 1px solid $color-border;
     margin: 1.25rem 0;
 }
 
 .section-label {
     display: block;
     font-size: 0.9rem;
-    color: rgba(0, 0, 0, 0.6);
+    color: $color-text-light;
     margin-bottom: 0.75rem;
 }
 
@@ -161,7 +163,7 @@
         width: 130px;
         height: 130px;
         border-radius: 16px;
-        background-color: #f0eeed;
+        background-color: $color-background-soft;
         overflow: hidden;
         cursor: pointer;
         border: 1px solid transparent;
@@ -179,13 +181,13 @@
         }
 
         &--active {
-            border-color: #000;
+            border-color: $color-dark;
         }
     }
 
     &__main {
         flex: 1;
-        background-color: #f0eeed;
+        background-color: $color-background-soft;
         border-radius: 20px;
         overflow: hidden;
         display: flex;
@@ -219,7 +221,7 @@
 
     &--selected::after {
         content: "✓";
-        color: #fff;
+        color: $color-white;
         font-size: 0.9rem;
         font-weight: bold;
     }
@@ -234,10 +236,10 @@
 .size-btn {
     padding: 0.6rem 1.25rem;
     border-radius: 62px;
-    background-color: #f0f0f0;
+    background-color: $color-background-gray;
     border: none;
     font-size: 0.9rem;
-    color: rgba(0, 0, 0, 0.6);
+    color: $color-text-light;
     cursor: pointer;
     transition: all 0.2s ease;
 
@@ -246,11 +248,11 @@
     }
 
     &--selected {
-        background-color: #000;
-        color: #fff;
+        background-color: $color-dark;
+        color: $color-white;
 
         &:hover {
-            background-color: #000;
+            background-color: $color-dark;
         }
     }
 }
@@ -264,7 +266,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        background-color: #f0f0f0;
+        background-color: $color-background-gray;
         border-radius: 62px;
         padding: 0.75rem 1.25rem;
         width: 140px;
@@ -275,7 +277,7 @@
             font-size: 1.2rem;
             font-weight: 600;
             cursor: pointer;
-            color: #000;
+            color: $color-dark;
         }
 
         .qty-val {
@@ -286,8 +288,8 @@
 
     .add-to-cart-btn {
         flex: 1;
-        background-color: #000;
-        color: #fff;
+        background-color: $color-dark;
+        color: $color-white;
         border: none;
         border-radius: 62px;
         padding: 0.75rem 1.5rem;
@@ -297,11 +299,10 @@
         transition: background-color 0.2s ease;
 
         &:hover {
-            background-color: #333;
+            background-color: $color-text;
         }
     }
 }
-
 
 .reviews-section {
     margin: 2rem auto;
@@ -309,7 +310,7 @@
 
     &__tabs {
         display: flex;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        border-bottom: 1px solid $color-border;
         margin-bottom: 2rem;
     }
 
@@ -325,9 +326,9 @@
         border-bottom: 2px solid transparent;
 
         &--active {
-            color: #000;
+            color: $color-dark;
             font-weight: 600;
-            border-bottom-color: #000;
+            border-bottom-color: $color-dark;
         }
     }
 
@@ -343,13 +344,13 @@
     &__title {
         font-size: 1.5rem;
         font-weight: 700;
-        color: #000;
+        color: $color-dark;
     }
 
     &__count {
         font-size: 1rem;
         font-weight: 400;
-        color: rgba(0, 0, 0, 0.6);
+        color: $color-text-light;
     }
 
     &__controls {
@@ -362,13 +363,13 @@
         width: 44px;
         height: 44px;
         border-radius: 62px;
-        background-color: #f0f0f0;
+        background-color: $color-background-gray;
         border: none;
         cursor: pointer;
     }
 
     &__sort-select {
-        background-color: #f0f0f0;
+        background-color: $color-background-gray;
         border: none;
         padding: 0.75rem 1.25rem;
         border-radius: 62px;
@@ -379,8 +380,8 @@
     }
 
     &__write-btn {
-        background-color: #000;
-        color: #fff;
+        background-color: $color-dark;
+        color: $color-white;
         border: none;
         padding: 0.75rem 1.5rem;
         border-radius: 62px;
@@ -406,8 +407,8 @@
     }
 
     &__load-btn {
-        background-color: #fff;
-        border: 1px solid rgba(0, 0, 0, 0.1);
+        background-color: $color-background;
+        border: 1px solid $color-border;
         padding: 0.85rem 2.5rem;
         border-radius: 62px;
         font-size: 0.9rem;
@@ -422,7 +423,7 @@
 }
 
 .review-card {
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid $color-border;
     border-radius: 20px;
     padding: 1.75rem;
     display: flex;
@@ -450,18 +451,17 @@
         background: none;
         border: none;
         font-size: 1.25rem;
-        color: rgba(0, 0, 0, 0.4);
+        color: $color-text-faded;
         cursor: pointer;
     }
 
     &__user {
-
         display: flex;
         align-items: center;
         gap: 0.4rem;
         font-size: 1.1rem;
         font-weight: 700;
-        color: #000;
+        color: $color-dark;
     }
 
     &__badge {
@@ -470,21 +470,21 @@
         justify-content: center;
         width: 16px;
         height: 16px;
-        background-color: #01b763;
-        color: #fff;
+        background-color: $color-success;
+        color: $color-white;
         border-radius: 50%;
         font-size: 10px;
     }
 
     &__message {
         font-size: 0.95rem;
-        color: rgba(0, 0, 0, 0.6);
+        color: $color-text-light;
         line-height: 1.5;
     }
 
     &__date {
         font-size: 0.85rem;
-        color: rgba(0, 0, 0, 0.4);
+        color: $color-text-faded;
         margin-top: auto;
     }
 }
