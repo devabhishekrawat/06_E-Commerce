@@ -80,7 +80,9 @@ function getAverageRating(reviews) {
         0
     );
 
-    return total / reviews.length;
+    const average = total / reviews.length;
+
+    return Math.floor(average * 2) / 2;
 }
 
 function createProductCard(product) {

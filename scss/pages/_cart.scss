@@ -1,9 +1,12 @@
+@use "../abstracts/variables.scss" as *;
+@use "../abstracts/mixins.scss" as *;
+
 .cart-page {
-    padding: 1.5rem 0 4rem 0;
+    padding: 1.5rem 0 4rem;
     width: 100%;
 
     &__container {
-        max-width: 1240px;
+        max-width: 77.5rem;
         margin: 0 auto;
         padding: 0 1rem;
     }
@@ -11,7 +14,7 @@
     &__title {
         font-size: 2.25rem;
         font-weight: 900;
-        letter-spacing: -0.5px;
+        letter-spacing: -0.03125rem;
         margin-bottom: 1.5rem;
         text-transform: uppercase;
     }
@@ -22,16 +25,16 @@
     align-items: center;
     gap: 0.5rem;
     font-size: 0.9rem;
-    color: rgba(0, 0, 0, 0.6);
+    color: $color-text-light;
     margin-bottom: 1.5rem;
 
     &__link {
-        color: rgba(0, 0, 0, 0.6);
+        color: $color-text-light;
         text-decoration: none;
     }
 
     &__current {
-        color: #000;
+        color: $color-dark;
         font-weight: 500;
     }
 }
@@ -41,14 +44,14 @@
     grid-template-columns: 1.5fr 1fr;
     gap: 1.5rem;
 
-    @media (max-width: 900px) {
+    @media (max-width: 56.25em) {
         grid-template-columns: 1fr;
     }
 }
 
 .cart-items {
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 20px;
+    border: 0.0625rem solid $color-border;
+    border-radius: 1.25rem;
     padding: 1.25rem;
     display: flex;
     flex-direction: column;
@@ -59,17 +62,20 @@
     align-items: center;
     gap: 1rem;
     padding: 1rem 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 0.0625rem solid $color-border;
 
     &:last-child {
         border-bottom: none;
     }
 
     &__img {
-        width: 96px;
-        height: 96px;
-        border-radius: 12px;
-        background-color: #f0eeed;
+        width: 100%;
+        height: 100%;
+        max-width: 6rem;
+        max-height: 6rem;
+        aspect-ratio: 1 / 1;
+        border-radius: 0.75rem;
+        background-color: $color-background-soft;
         object-fit: cover;
     }
 
@@ -89,23 +95,23 @@
     &__title {
         font-size: 1.1rem;
         font-weight: 700;
-        color: #000;
+        color: $color-dark;
     }
 
     &__delete-btn {
         background: none;
         border: none;
-        color: #ff3333;
+        color: $color-danger;
         font-size: 1.2rem;
         cursor: pointer;
     }
 
     &__meta {
         font-size: 0.85rem;
-        color: rgba(0, 0, 0, 0.6);
+        color: $color-text-light;
 
         span {
-            color: rgba(0, 0, 0, 0.4);
+            color: $color-text-faded;
         }
     }
 
@@ -119,15 +125,15 @@
     &__price {
         font-size: 1.25rem;
         font-weight: 700;
-        color: #000;
+        color: $color-dark;
     }
 
     &__stepper {
         display: flex;
         align-items: center;
         gap: 1rem;
-        background-color: #f0f0f0;
-        border-radius: 62px;
+        background-color: $color-background-gray;
+        border-radius: $radius-pill;
         padding: 0.4rem 1rem;
 
         button {
@@ -146,8 +152,8 @@
 }
 
 .order-summary {
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 20px;
+    border: 0.0625rem solid $color-border;
+    border-radius: 1.25rem;
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
@@ -167,7 +173,7 @@
         &--total {
             .order-summary__label {
                 font-size: 1.1rem;
-                color: #000;
+                color: $color-dark;
                 font-weight: 600;
             }
 
@@ -180,22 +186,22 @@
 
     &__label {
         font-size: 1rem;
-        color: rgba(0, 0, 0, 0.6);
+        color: $color-text-light;
     }
 
     &__value {
         font-size: 1rem;
         font-weight: 700;
-        color: #000;
+        color: $color-dark;
 
         &--discount {
-            color: #ff3333;
+            color: $color-danger;
         }
     }
 
     &__divider {
         border: none;
-        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        border-top: 0.0625rem solid $color-border;
         margin: 0;
     }
 }
@@ -209,8 +215,8 @@
         display: flex;
         align-items: center;
         gap: 0.5rem;
-        background-color: #f0f0f0;
-        border-radius: 62px;
+        background-color: $color-background-gray;
+        border-radius: $radius-pill;
         padding: 0.75rem 1rem;
     }
 
@@ -228,10 +234,10 @@
     }
 
     &__btn {
-        background-color: #000;
-        color: #fff;
+        background-color: $color-dark;
+        color: $color-white;
         border: none;
-        border-radius: 62px;
+        border-radius: $radius-pill;
         padding: 0.75rem 1.5rem;
         font-size: 0.9rem;
         font-weight: 500;
@@ -240,14 +246,15 @@
 }
 
 .checkout-btn {
-    background-color: #000;
-    color: #fff;
+    background-color: $color-dark;
+    color: $color-white;
     border: none;
-    border-radius: 62px;
+    border-radius: $radius-pill;
     padding: 1rem;
     font-size: 1rem;
     font-weight: 500;
     cursor: pointer;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -262,10 +269,10 @@
     text-align: center;
     padding: 3rem;
     font-size: 1.1rem;
-    color: rgba(0, 0, 0, 0.5);
+    color: $color-text-faded;
 }
 
-// modal 
+// Modal
 .success-modal {
     position: fixed;
     inset: 0;
@@ -273,67 +280,74 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 1.25rem;
     background: rgba(0, 0, 0, 0.5);
-}
 
-.success-modal__content {
-    width: 100%;
-    max-width: 400px;
-    padding: 35px 25px;
-    text-align: center;
-    background: #fff;
-    border-radius: 20px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-}
+    &__content {
+        width: 100%;
+        max-width: 25rem;
+        padding: 2.1875rem 1.5625rem;
+        text-align: center;
+        background: $color-white;
+        border-radius: 1.25rem;
+        box-shadow: 0 0.9375rem 2.5rem rgba(0, 0, 0, 0.2);
 
-.success-modal__icon {
-    width: 65px;
-    height: 65px;
-    margin: 0 auto 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background: #000;
-    color: #fff;
-    font-size: 32px;
-    font-weight: bold;
-}
+        h2 {
+            margin: 0 0 0.625rem;
+            font-size: 1.5rem;
+        }
 
-.success-modal__content h2 {
-    margin: 0 0 10px;
-    font-size: 24px;
-}
-
-.success-modal__content p {
-    margin: 0 0 25px;
-    color: #666;
-    line-height: 1.5;
-}
-
-.success-modal__btn {
-    width: 100%;
-    padding: 14px 20px;
-    border: none;
-    border-radius: 25px;
-    background: #000;
-    color: #fff;
-    font-size: 15px;
-    cursor: pointer;
-}
-
-.success-modal__btn:hover {
-    opacity: 0.85;
-}
-
-@media (max-width: 480px) {
-    .success-modal__content {
-        max-width: 330px;
-        padding: 30px 20px;
+        p {
+            margin: 0 0 1.5625rem;
+            color: $color-text-muted;
+            line-height: 1.5;
+        }
     }
 
-    .success-modal__content h2 {
-        font-size: 21px;
+    &__icon {
+        width: 100%;
+        height: 100%;
+        max-width: 4.0625rem;
+        max-height: 4.0625rem;
+        aspect-ratio: 1 / 1;
+        margin: 0 auto 1.125rem;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 50%;
+        background: $color-dark;
+        color: $color-white;
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    &__btn {
+        width: 100%;
+        padding: 0.875rem 1.25rem;
+        border: none;
+        border-radius: $radius-pill;
+        background: $color-dark;
+        color: $color-white;
+        font-size: 0.9375rem;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.85;
+        }
+    }
+}
+
+@media (max-width: 30em) {
+    .success-modal {
+        &__content {
+            max-width: 20.625rem;
+            padding: 1.875rem 1.25rem;
+
+            h2 {
+                font-size: 1.3125rem;
+            }
+        }
     }
 }

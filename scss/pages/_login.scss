@@ -1,12 +1,12 @@
 @use "../abstracts/variables.scss" as *;
+@use "../abstracts/mixins.scss" as *;
 
 .login {
     min-height: 100vh;
     background-color: $color-background-hero;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     padding: 2rem 1rem;
+
+    @include flex-center;
 
     &__container {
         width: 100%;
@@ -15,7 +15,6 @@
 
         background-color: $color-background;
         border-radius: 24px;
-
         overflow: hidden;
 
         display: grid;
@@ -148,19 +147,14 @@
     }
 
     &__button {
-        width: 100%;
-        border: none;
-        border-radius: 62px;
-        padding: 1rem;
+        @include button;
 
-        background-color: $color-dark;
-        color: $color-white;
+        width: 100%;
+        padding: 1rem;
 
         font-family: "Satoshi";
         font-size: 1rem;
         font-weight: 600;
-
-        cursor: pointer;
 
         transition:
             background-color 0.2s ease,
@@ -194,9 +188,7 @@
         min-height: 650px;
         background-color: $color-background-hero;
 
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        @include flex-center;
 
         overflow: hidden;
 
@@ -243,12 +235,12 @@
     &__star--large {
         top: -70px;
         right: -30px;
-        font-size: 120px;
+        font-size: 7.5rem;
     }
 
     &__star--small {
         bottom: -80px;
         left: -30px;
-        font-size: 100px;
+        font-size: 6.25rem;
     }
 }
