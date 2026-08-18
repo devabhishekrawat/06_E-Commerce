@@ -44,7 +44,7 @@
     grid-template-columns: 1.5fr 1fr;
     gap: 1.5rem;
 
-    @media (max-width: 56.25em) {
+    @media (max-width: 900px) {
         grid-template-columns: 1fr;
     }
 }
@@ -106,13 +106,19 @@
         cursor: pointer;
     }
 
+    &__delete-icon {
+        width: 1.2rem;
+        height: 1.2rem;
+        object-fit: contain;
+    }
+
     &__meta {
         font-size: 0.85rem;
         color: $color-text-light;
+    }
 
-        span {
-            color: $color-text-faded;
-        }
+    &__meta-value {
+        color: $color-text-faded;
     }
 
     &__bottom {
@@ -135,19 +141,19 @@
         background-color: $color-background-gray;
         border-radius: $radius-pill;
         padding: 0.4rem 1rem;
+    }
 
-        button {
-            background: none;
-            border: none;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-        }
+    &__stepper-btn {
+        background: none;
+        border: none;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+    }
 
-        span {
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
+    &__quantity {
+        font-size: 0.9rem;
+        font-weight: 600;
     }
 }
 
@@ -221,8 +227,10 @@
     }
 
     &__icon {
-        font-size: 1rem;
+        width: 1rem;
+        height: 1rem;
         opacity: 0.4;
+        object-fit: contain;
     }
 
     &__input {
@@ -261,7 +269,9 @@
     gap: 0.5rem;
 
     &__arrow {
-        font-size: 1.1rem;
+        width: 1.1rem;
+        height: 1.1rem;
+        object-fit: contain;
     }
 }
 
@@ -272,7 +282,6 @@
     color: $color-text-faded;
 }
 
-// Modal
 .success-modal {
     position: fixed;
     inset: 0;
@@ -291,17 +300,17 @@
         background: $color-white;
         border-radius: 1.25rem;
         box-shadow: 0 0.9375rem 2.5rem rgba(0, 0, 0, 0.2);
+    }
 
-        h2 {
-            margin: 0 0 0.625rem;
-            font-size: 1.5rem;
-        }
+    &__title {
+        margin: 0 0 0.625rem;
+        font-size: 1.5rem;
+    }
 
-        p {
-            margin: 0 0 1.5625rem;
-            color: $color-text-muted;
-            line-height: 1.5;
-        }
+    &__message {
+        margin: 0 0 1.5625rem;
+        color: $color-text-muted;
+        line-height: 1.5;
     }
 
     &__icon {
@@ -339,15 +348,15 @@
     }
 }
 
-@media (max-width: 30em) {
+@media (max-width: 480px) {
     .success-modal {
         &__content {
             max-width: 20.625rem;
             padding: 1.875rem 1.25rem;
+        }
 
-            h2 {
-                font-size: 1.3125rem;
-            }
+        &__title {
+            font-size: 1.3125rem;
         }
     }
 }

@@ -105,7 +105,6 @@
         font-size: 0.8rem;
         color: $color-text-muted;
         text-decoration: underline;
-
         transition: color 0.2s ease;
 
         &:hover {
@@ -175,12 +174,12 @@
         text-align: center;
         font-size: 0.9rem;
         color: $color-text-muted;
+    }
 
-        a {
-            color: $color-dark;
-            font-weight: 700;
-            text-decoration: underline;
-        }
+    &__signup-link {
+        color: $color-dark;
+        font-weight: 700;
+        text-decoration: underline;
     }
 
     &__visual {
@@ -202,27 +201,27 @@
         max-width: 400px;
         padding: 2rem;
         text-align: center;
+    }
 
-        h2 {
-            position: relative;
-            z-index: 2;
+    &__visual-title {
+        position: relative;
+        z-index: 2;
 
-            font-family: "Integral CF";
-            font-size: 3.2rem;
-            line-height: 1.05;
+        font-family: "Integral CF";
+        font-size: 3.2rem;
+        line-height: 1.05;
 
-            color: $color-dark;
-            margin-bottom: 1.5rem;
-        }
+        color: $color-dark;
+        margin-bottom: 1.5rem;
+    }
 
-        p {
-            position: relative;
-            z-index: 2;
+    &__visual-description {
+        position: relative;
+        z-index: 2;
 
-            font-size: 1rem;
-            line-height: 1.6;
-            color: $color-text-muted;
-        }
+        font-size: 1rem;
+        line-height: 1.6;
+        color: $color-text-muted;
     }
 
     &__star {

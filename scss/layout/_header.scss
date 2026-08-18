@@ -64,13 +64,13 @@
     background: transparent;
     cursor: pointer;
     flex-shrink: 0;
+}
 
-    img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-    }
+.header__hamburger-icon {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .header__logo {
@@ -129,7 +129,7 @@
     flex-shrink: 0;
 }
 
-.header__search-icon img {
+.header__search-icon-image {
     width: 100%;
     height: 100%;
     max-width: 1.25rem;
@@ -147,7 +147,7 @@
     color: $color-text;
 }
 
-.header__actions {
+.header__actions { 
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -166,9 +166,10 @@
     background: none;
     cursor: pointer;
     text-decoration: none;
+    position: relative;
 }
 
-.header__action-btn img {
+.header__action-icon {
     width: 100%;
     height: 100%;
     max-width: 1.375rem;
@@ -176,7 +177,9 @@
     display: block;
 }
 
-@media (max-width: 51.875rem) {
+
+
+@media (max-width: 830px) {
 
     .header__container {
         min-height: 4rem;
@@ -245,7 +248,7 @@
         height: 100%;
     }
 
-    .header__search-icon img {
+    .header__search-icon-image {
         width: 100%;
         height: 100%;
         max-width: 1.375rem;
@@ -267,7 +270,7 @@
         max-height: 1.375rem;
     }
 
-    .header__action-btn img {
+    .header__action-icon {
         width: 100%;
         height: 100%;
         max-width: 1.375rem;
@@ -275,7 +278,8 @@
     }
 }
 
-@media (max-width: 30rem) {
+
+@media (max-width: 430px) {
 
     .header__container {
         min-height: 3.625rem;
@@ -290,7 +294,7 @@
         max-height: 1.25rem;
     }
 
-    .header__hamburger img {
+    .header__hamburger-icon {
         width: 100%;
         height: 100%;
     }
@@ -312,8 +316,8 @@
         height: 100%;
     }
 
-    .header__search-icon img,
-    .header__action-btn img {
+    .header__search-icon-image,
+    .header__action-icon {
         width: 100%;
         height: 100%;
         max-width: 1.25rem;
@@ -335,6 +339,8 @@
         padding: 0.5rem 1rem;
     }
 }
+
+
 
 .header__profile {
     position: relative;
@@ -373,11 +379,6 @@
 .header__profile-link:hover,
 .header__logout-btn:hover {
     background-color: $color-background-soft;
-}
-
-
-.header__action-btn {
-    position: relative;
 }
 
 .cart-count {

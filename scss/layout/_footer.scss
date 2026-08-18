@@ -12,6 +12,7 @@
         max-width: 84%;
         margin: 0 auto;
         padding: 0 1rem;
+
         @media (max-width:345px) {
             margin: 0;
         }
@@ -114,7 +115,7 @@
         flex-direction: column;
         gap: 0.8rem;
 
-        a {
+        &__link {
             color: $color-text-light;
             text-decoration: none;
             font-size: 0.95rem;

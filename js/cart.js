@@ -75,9 +75,9 @@ function renderCart() {
                 <span class="cart-item__price">$${item.price}</span>
 
                 <div class="cart-item__stepper">
-                    <button type="button" class="btn-decrease" data-index="${index}">-</button>
+                    <button type="button" class="cart-item__stepper-btn btn-decrease" data-index="${index}">-</button>
                     <span>${item.quantity}</span>
-                    <button type="button" class="btn-increase" data-index="${index}">+</button>
+                    <button type="button" class="cart-item__stepper-btn btn-increase" data-index="${index}">+</button>
                 </div>
             </div>
         </div>
@@ -165,8 +165,8 @@ function showSuccessModal() {
     modal.innerHTML = `
         <div class="success-modal__content">
             <div class="success-modal__icon">✓</div>
-            <h2>Order Successful!</h2>
-            <p>Your order has been successfully completed.</p>
+            <h2 class="success-modal__title">Order Successful!</h2>
+            <p class="success-modal__message">Your order has been successfully completed.</p>
             <a  hreg="./index.html" class="success-modal__btn">
                 Continue Shopping
             </a>
