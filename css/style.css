@@ -1601,6 +1601,7 @@ ul {
   border: none;
   cursor: pointer;
   position: relative;
+  background-color: #314F4A;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1610,6 +1611,7 @@ ul {
   color: #fff;
   font-size: 0.9rem;
   font-weight: bold;
+  background-color: #4F4E37;
 }
 
 .size-options {

@@ -229,6 +229,7 @@
     border: none;
     cursor: pointer;
     position: relative;
+    background-color: $defaul-nonSelected1;
 
     @include flex-center;
 
@@ -237,6 +238,7 @@
         color: $color-white;
         font-size: 0.9rem;
         font-weight: bold;
+        background-color: $default-selected;
     }
 }
 
@@ -257,7 +259,7 @@
     transition: all 0.2s ease;
 
     &:hover {
-        background-color: #e0e0e0;
+        background-color: $hover-color;
     }
 
     &--selected {
