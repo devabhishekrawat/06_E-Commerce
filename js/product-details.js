@@ -2,331 +2,246 @@ import { products1, products2 } from "./data.js";
 import { cartHeader } from "./header.js";
 
 const user = JSON.parse(sessionStorage.getItem("user"));
-const newArrivalsGrid = document.querySelector("#new-arrivals-grid");
-const newArrivalsBtn = document.querySelector("#new-arrivals-btn");
 
 if (!user?.isLoggedIn) {
     window.location.href = "./login.html";
 }
 
 const allProducts = [...products1, ...products2];
-const params = new URLSearchParams(window.location.search);
-const productId = params.get("id");
+const productId = new URLSearchParams(window.location.search).get("id");
+
+const newArrivalsGrid = document.querySelector("#new-arrivals-grid");
+const newArrivalsBtn = document.querySelector("#new-arrivals-btn");
 
 document.addEventListener("DOMContentLoaded", () => {
-    const banner = document.querySelector(".top-banner");
-    const closeButton = document.querySelector(".top-banner__close");
-    const currentUser = JSON.parse(sessionStorage.getItem("user"));
-
-    if (currentUser?.isLoggedIn === true && banner) {
-        banner.style.display = "none";
-    } else if (closeButton && banner) {
-        closeButton.addEventListener("click", () => {
-            banner.style.display = "none";
-        });
-    }
-
-    const product =
-        allProducts.find(
-            (p) => String(p.id) === String(productId)
-        ) || allProducts[0];
-
+    setupBanner();
     cartHeader();
 
-    if (product) {
-        renderProductDetails(product);
+    const product = allProducts.find(
+        item => String(item.id) === String(productId)
+    ) || allProducts[0];
 
-        if (newArrivalsGrid && newArrivalsBtn) {
-            renderProducts(
-                products1,
-                newArrivalsGrid,
-                newArrivalsBtn
-            );
-        }
+    if (!product) return;
+
+    renderProductDetails(product);
+
+    if (newArrivalsGrid && newArrivalsBtn) {
+        renderProducts(products1, newArrivalsGrid, newArrivalsBtn);
     }
 });
 
+function setupBanner() {
+    const banner = document.querySelector(".top-banner");
+    const closeButton = document.querySelector(".top-banner__close");
+
+    if (!banner) return;
+
+    const currentUser = JSON.parse(sessionStorage.getItem("user"));
+
+    if (currentUser?.isLoggedIn) {
+        banner.style.display = "none";
+        return;
+    }
+
+    closeButton?.addEventListener("click", () => {
+        banner.style.display = "none";
+    });
+}
+
 function renderProductDetails(product) {
-    const title = document.querySelector(
-        ".product-detail__title"
-    );
+    const title = document.querySelector(".product-detail__title");
+    const description = document.querySelector(".product-detail__desc");
 
-    const description = document.querySelector(
-        ".product-detail__desc"
-    );
+    if (title) title.textContent = product.name;
+    if (description) description.textContent = product.description;
 
-    if (title) {
-        title.textContent =
-            product.name || "ONE LIFE GRAPHIC T-SHIRT";
-    }
-
-    if (description) {
-        description.textContent =
-            product.description ||
-            "This graphic t-shirt is perfect for any occasion.";
-    }
-
-    let avgRating = 0;
-
-    if (
-        Array.isArray(product.reviews) &&
-        product.reviews.length > 0
-    ) {
-        const totalRating = product.reviews.reduce(
-            (sum, review) =>
-                sum + Number(review.rating || 0),
-            0
-        );
-
-        const average =
-            totalRating / product.reviews.length;
-
-        avgRating = Math.floor(average * 2) / 2;
-    }
+    const rating = getAverageRating(product.reviews);
 
     const ratingScore = document.querySelector(
         ".product-detail__rating-score"
     );
 
     if (ratingScore) {
-        ratingScore.textContent = `${avgRating}/5`;
+        ratingScore.textContent = `${rating}/5`;
     }
 
-    renderStars(avgRating);
-
-    const currentPrice = document.querySelector(
-        ".price-current"
+    renderStars(
+        rating,
+        document.querySelector(".product-detail__stars"),
+        "product-detail__star star-icon"
     );
+
+    setPrice(product);
+    setupGallery(product);
+    setupQuantity();
+    setupSelection(".color-option", "color-option--selected");
+    setupSelection(".size-btn", "size-btn--selected");
+    setupAddToCart(product);
+    renderReviewsSection(product.reviews || []);
+}
+
+function getAverageRating(reviews) {
+    if (!Array.isArray(reviews) || !reviews.length) {
+        return 0;
+    }
+
+    const total = reviews.reduce((sum, review) => {
+        return sum + Number(review.rating || 0);
+    }, 0);
+
+    return Math.floor((total / reviews.length) * 2) / 2;
+}
+
+function renderStars(rating, container, className) {
+    if (!container) return;
+
+    container.replaceChildren();
+
+    const fullStars = Math.floor(rating);
+    const halfStar = rating % 1 >= 0.5;
+
+    for (let i = 0; i < fullStars; i++) {
+        container.appendChild(createStar(className, "Star"));
+    }
+
+    if (halfStar) {
+        container.appendChild(
+            createStar(className, "Half Star", true)
+        );
+    }
+}
+
+function createStar(className, alt, half = false) {
+    const img = document.createElement("img");
+
+    img.src = half
+        ? "./assets/icons/halfStar.svg"
+        : "./assets/icons/Star.svg";
+
+    img.alt = alt;
+    img.className = className;
+
+    return img;
+}
+
+function setPrice(product) {
+    const currentPrice = document.querySelector(".price-current");
+    const originalPrice = document.querySelector(".price-original");
+    const discount = document.querySelector(".price-discount");
 
     if (currentPrice) {
         currentPrice.textContent = `$${product.price}`;
     }
 
-    const originalPriceEl = document.querySelector(
-        ".price-original"
-    );
+    if (originalPrice) {
+        originalPrice.style.display = product.originalPrice
+            ? "inline"
+            : "none";
 
-    if (originalPriceEl) {
         if (product.originalPrice) {
-            originalPriceEl.textContent =
-                `$${product.originalPrice}`;
-            originalPriceEl.style.display = "inline";
-        } else {
-            originalPriceEl.style.display = "none";
+            originalPrice.textContent = `$${product.originalPrice}`;
         }
     }
 
-    const discountEl = document.querySelector(
-        ".price-discount"
-    );
+    if (discount) {
+        discount.style.display = product.discount
+            ? "inline"
+            : "none";
 
-    if (discountEl) {
         if (product.discount) {
-            discountEl.textContent =
-                `-${product.discount}%`;
-            discountEl.style.display = "inline";
-        } else {
-            discountEl.style.display = "none";
+            discount.textContent = `-${product.discount}%`;
         }
     }
+}
 
+function setupGallery(product) {
     const mainImage = document.querySelector(
         ".product-gallery__main-image"
     );
 
-    const thumbsContainer = document.querySelector(
+    const thumbnails = document.querySelector(
         ".product-gallery__thumbnails"
     );
 
-    const images =
-        Array.isArray(product.images) &&
-        product.images.length
-            ? product.images
-            : [
-                  product.image,
-                  product.image,
-                  product.image
-              ];
+    const images = product.images?.length
+        ? product.images
+        : [product.image, product.image, product.image];
 
     if (mainImage) {
         mainImage.src = images[0] || "";
-        mainImage.alt =
-            product.name || "Product";
+        mainImage.alt = product.name || "Product";
     }
 
-    if (thumbsContainer) {
-        thumbsContainer.innerHTML = images
-            .map(
-                (imgSrc, index) => `
-                    <div class="product-gallery__thumb ${
-                        index === 0
-                            ? "product-gallery__thumb--active"
-                            : ""
-                    }">
-                        <img
-                            class="product-gallery__thumb-image"
-                            src="${imgSrc || ""}"
-                            alt="Thumbnail ${index + 1}"
-                        >
-                    </div>
-                `
-            )
-            .join("");
+    if (!thumbnails) return;
 
-        const thumbnails =
-            thumbsContainer.querySelectorAll(
-                ".product-gallery__thumb"
+    thumbnails.replaceChildren();
+
+    images.forEach((imageSrc, index) => {
+        const thumb = document.createElement("div");
+        thumb.className = "product-gallery__thumb";
+
+        if (index === 0) {
+            thumb.classList.add(
+                "product-gallery__thumb--active"
             );
+        }
 
-        thumbnails.forEach((thumb, index) => {
-            thumb.addEventListener("click", () => {
-                thumbnails.forEach((item) => {
+        const image = document.createElement("img");
+        image.className = "product-gallery__thumb-image";
+        image.src = imageSrc || "";
+        image.alt = `Thumbnail ${index + 1}`;
+
+        thumb.appendChild(image);
+        thumbnails.appendChild(thumb);
+
+        thumb.addEventListener("click", () => {
+            document
+                .querySelectorAll(".product-gallery__thumb")
+                .forEach(item => {
                     item.classList.remove(
                         "product-gallery__thumb--active"
                     );
                 });
 
-                thumb.classList.add(
-                    "product-gallery__thumb--active"
-                );
+            thumb.classList.add(
+                "product-gallery__thumb--active"
+            );
 
-                if (mainImage) {
-                    mainImage.src =
-                        images[index] || "";
-                }
-            });
+            if (mainImage) {
+                mainImage.src = images[index] || "";
+            }
         });
-    }
+    });
+}
 
+function setupQuantity() {
     let quantity = 1;
 
-    const qtyVal = document.querySelector(".qty-val");
-    const minusButton =
-        document.querySelector(".btn-minus");
-    const plusButton =
-        document.querySelector(".btn-plus");
+    const quantityValue = document.querySelector(".qty-val");
+    const minusButton = document.querySelector(".btn-minus");
+    const plusButton = document.querySelector(".btn-plus");
 
     minusButton?.addEventListener("click", () => {
-        if (quantity > 1) {
-            quantity--;
+        if (quantity <= 1) return;
 
-            if (qtyVal) {
-                qtyVal.textContent = quantity;
-            }
-        }
+        quantity--;
+        quantityValue.textContent = quantity;
     });
 
     plusButton?.addEventListener("click", () => {
         quantity++;
-
-        if (qtyVal) {
-            qtyVal.textContent = quantity;
-        }
+        quantityValue.textContent = quantity;
     });
 
-    setupSelection(
-        ".color-option",
-        "color-option--selected"
-    );
-
-    setupSelection(
-        ".size-btn",
-        "size-btn--selected"
-    );
-
-    const addToCartBtn = document.querySelector(
-        ".add-to-cart-btn"
-    );
-
-    addToCartBtn?.addEventListener("click", () => {
-        const selectedSize =
-            document.querySelector(
-                ".size-btn--selected"
-            );
-
-        const selectedColor =
-            document.querySelector(
-                ".color-option--selected"
-            );
-
-        const cartItem = {
-            productId: product.id,
-            productName: product.name,
-            quantity,
-            size:
-                selectedSize?.dataset.size ||
-                selectedSize?.textContent.trim() ||
-                "",
-            color:
-                selectedColor?.getAttribute(
-                    "aria-label"
-                ) || "",
-            image: product.image,
-            price: product.price
-        };
-
-        const cart =
-            JSON.parse(
-                localStorage.getItem("cart")
-            ) || [];
-
-        cart.push(cartItem);
-
-        localStorage.setItem(
-            "cart",
-            JSON.stringify(cart)
-        );
-
-        alert("Product added to cart!");
-    });
-
-    renderReviewsSection(
-        product.reviews || []
-    );
-}
-
-function renderStars(rating) {
-    const starsContainer = document.querySelector(
-        ".product-detail__stars"
-    );
-
-    if (!starsContainer) return;
-
-    const fullStars = Math.floor(rating);
-    const hasHalfStar = rating % 1 >= 0.5;
-
-    let starsHTML = "";
-
-    for (let i = 0; i < fullStars; i++) {
-        starsHTML += `
-            <img
-                src="./assets/icons/Star.svg"
-                alt="Full Star"
-                class="product-detail__star star-icon"
-            >
-        `;
-    }
-
-    if (hasHalfStar) {
-        starsHTML += `
-            <img
-                src="./assets/icons/halfStar.svg"
-                alt="Half Star"
-                class="product-detail__star star-icon"
-            >
-        `;
-    }
-
-    starsContainer.innerHTML = starsHTML;
+    return () => quantity;
 }
 
 function setupSelection(selector, activeClass) {
-    const elements =
-        document.querySelectorAll(selector);
+    const elements = document.querySelectorAll(selector);
 
-    elements.forEach((element) => {
+    elements.forEach(element => {
         element.addEventListener("click", () => {
-            elements.forEach((item) => {
+            elements.forEach(item => {
                 item.classList.remove(activeClass);
             });
 
@@ -335,136 +250,130 @@ function setupSelection(selector, activeClass) {
     });
 }
 
+function setupAddToCart(product) {
+    const button = document.querySelector(".add-to-cart-btn");
+    const quantityValue = document.querySelector(".qty-val");
+
+    button?.addEventListener("click", () => {
+        const selectedSize = document.querySelector(
+            ".size-btn--selected"
+        );
+
+        const selectedColor = document.querySelector(
+            ".color-option--selected"
+        );
+
+        const cartItem = {
+            productId: product.id,
+            productName: product.name,
+            quantity: Number(quantityValue?.textContent || 1),
+            size: selectedSize?.dataset.size ||
+                selectedSize?.textContent.trim() ||
+                "",
+            color: selectedColor?.getAttribute("aria-label") || "",
+            image: product.image,
+            price: product.price
+        };
+
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        cart.push(cartItem);
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        alert("Product added to cart!");
+    });
+}
+
 function renderReviewsSection(reviews) {
-    const countEl = document.querySelector(
-        ".reviews-section__count"
-    );
+    const count = document.querySelector(".reviews-section__count");
+    const grid = document.querySelector(".reviews-section__grid");
 
-    const gridContainer = document.querySelector(
-        ".reviews-section__grid"
-    );
-
-    if (countEl) {
-        countEl.textContent = `(${reviews.length})`;
+    if (count) {
+        count.textContent = `(${reviews.length})`;
     }
 
-    if (!gridContainer) return;
+    if (!grid) return;
 
-    if (reviews.length === 0) {
-        gridContainer.innerHTML = `
-            <p class="reviews-section__empty">
-                No reviews yet for this product.
-            </p>
-        `;
+    grid.replaceChildren();
+
+    if (!reviews.length) {
+        const message = document.createElement("p");
+        message.className = "reviews-section__empty";
+        message.textContent = "No reviews yet for this product.";
+
+        grid.appendChild(message);
         return;
     }
 
-    gridContainer.innerHTML = reviews
-        .map((review) => {
-            const formattedDate = review.date
-                ? new Date(
-                      review.date
-                  ).toLocaleDateString("en-US", {
-                      month: "long",
-                      day: "numeric",
-                      year: "numeric"
-                  })
-                : "Posted recently";
+    reviews.forEach(review => {
+        const card = document.createElement("article");
+        card.className = "review-card";
 
-            return `
-                <article class="review-card">
-                    <div class="review-card__header">
-                        <div class="review-card__stars">
-                            ${generateStarIcons(
-                                Number(
-                                    review.rating || 0
-                                )
-                            )}
-                        </div>
+        const header = document.createElement("div");
+        header.className = "review-card__header";
 
-                        <button
-                            class="review-card__more-btn"
-                            aria-label="More options"
-                        >
-                            •••
-                        </button>
-                    </div>
+        const stars = document.createElement("div");
+        stars.className = "review-card__stars";
 
-                    <div class="review-card__user">
-                        ${
-                            review.user ||
-                            "Anonymous"
-                        }
+        renderStars(
+            Number(review.rating || 0),
+            stars,
+            "review-card__star star-icon"
+        );
 
-                        <span class="review-card__badge">
-                            ✓
-                        </span>
-                    </div>
+        const moreButton = document.createElement("button");
+        moreButton.className = "review-card__more-btn";
+        moreButton.setAttribute("aria-label", "More options");
+        moreButton.textContent = "•••";
 
-                    <p class="review-card__message">
-                        "${review.message || ""}"
-                    </p>
+        header.append(stars, moreButton);
 
-                    <span class="review-card__date">
-                        Posted on ${formattedDate}
-                    </span>
-                </article>
-            `;
-        })
-        .join("");
+        const user = document.createElement("div");
+        user.className = "review-card__user";
+        user.textContent = review.user || "Anonymous";
+
+        const badge = document.createElement("span");
+        badge.className = "review-card__badge";
+        badge.textContent = "✓";
+
+        user.appendChild(badge);
+
+        const message = document.createElement("p");
+        message.className = "review-card__message";
+        message.textContent = `"${review.message || ""}"`;
+
+        const date = document.createElement("span");
+        date.className = "review-card__date";
+        date.textContent = `Posted on ${formatDate(review.date)}`;
+
+        card.append(header, user, message, date);
+        grid.appendChild(card);
+    });
 }
 
-function generateStarIcons(rating) {
-    const fullStars = Math.floor(rating);
-    const hasHalfStar = rating % 1 >= 0.5;
+function formatDate(date) {
+    if (!date) return "Posted recently";
 
-    let html = "";
-
-    for (let i = 0; i < fullStars; i++) {
-        html += `
-            <img
-                src="./assets/icons/Star.svg"
-                alt="Star"
-                class="review-card__star star-icon"
-            >
-        `;
-    }
-
-    if (hasHalfStar) {
-        html += `
-            <img
-                src="./assets/icons/halfStar.svg"
-                alt="Half Star"
-                class="review-card__star star-icon"
-            >
-        `;
-    }
-
-    return html;
+    return new Date(date).toLocaleDateString("en-US", {
+        month: "long",
+        day: "numeric",
+        year: "numeric"
+    });
 }
 
 function createProductCard(product) {
-    const card =
-        document.createElement("div");
-
-    card.classList.add("product-card");
+    const card = document.createElement("div");
+    card.className = "product-card";
     card.dataset.productId = product.id;
 
     card.addEventListener("click", () => {
-        const userData =
-            sessionStorage.getItem("user");
+        const currentUser = JSON.parse(
+            sessionStorage.getItem("user")
+        );
 
-        const currentUser = userData
-            ? JSON.parse(userData)
-            : null;
-
-        if (
-            !currentUser ||
-            currentUser.isLoggedIn !== true
-        ) {
-            alert(
-                "Please login first to view product details."
-            );
+        if (!currentUser?.isLoggedIn) {
+            alert("Please login first to view product details.");
             return;
         }
 
@@ -472,209 +381,101 @@ function createProductCard(product) {
             `productDetail.html?id=${product.id}`;
     });
 
-    const imageWrapper =
-        document.createElement("div");
+    const imageWrapper = document.createElement("div");
+    imageWrapper.className = "product-card__image-wrapper";
 
-    imageWrapper.classList.add(
-        "product-card__image-wrapper"
-    );
-
-    const image =
-        document.createElement("img");
-
-    image.classList.add(
-        "product-card__image"
-    );
-
+    const image = document.createElement("img");
+    image.className = "product-card__image";
     image.src = product.image;
     image.alt = product.name;
 
     imageWrapper.appendChild(image);
 
-    const title =
-        document.createElement("h3");
-
-    title.classList.add(
-        "product-card__title"
-    );
-
+    const title = document.createElement("h3");
+    title.className = "product-card__title";
     title.textContent = product.name;
 
-    const averageRating =
-        getAverageRating(product.reviews);
+    const rating = getAverageRating(product.reviews);
 
-    const ratingContainer =
-        document.createElement("div");
+    const ratingContainer = document.createElement("div");
+    ratingContainer.className = "product-card__rating";
 
-    ratingContainer.classList.add(
-        "product-card__rating"
+    const stars = document.createElement("span");
+    stars.className = "stars";
+
+    renderStars(
+        rating,
+        stars,
+        "product-card__star-img"
     );
 
-    const stars =
-        document.createElement("span");
+    const score = document.createElement("span");
+    score.className = "score";
+    score.append(`${rating.toFixed(1)}/`);
 
-    stars.classList.add("stars");
+    const five = document.createElement("small");
+    five.textContent = "5";
 
-    stars.innerHTML =
-        createStars(averageRating);
+    score.appendChild(five);
+    ratingContainer.append(stars, score);
 
-    const score =
-        document.createElement("span");
+    const price = document.createElement("div");
+    price.className = "product-card__price";
 
-    score.classList.add("score");
+    const currentPrice = document.createElement("span");
+    currentPrice.className = "current";
+    currentPrice.textContent = `$${product.price}`;
 
-    score.innerHTML =
-        `${averageRating.toFixed(1)}/<small>5</small>`;
+    price.appendChild(currentPrice);
 
-    ratingContainer.appendChild(stars);
-    ratingContainer.appendChild(score);
+    if (product.originalPrice && product.discount) {
+        const originalPrice = document.createElement("span");
+        originalPrice.className = "original";
+        originalPrice.textContent = `$${product.originalPrice}`;
 
-    const priceContainer =
-        document.createElement("div");
+        const badge = document.createElement("span");
+        badge.className = "badge";
+        badge.textContent = `-${product.discount}%`;
 
-    priceContainer.classList.add(
-        "product-card__price"
-    );
-
-    if (
-        product.originalPrice &&
-        product.discount
-    ) {
-        const currentPrice =
-            document.createElement("span");
-
-        currentPrice.classList.add("current");
-        currentPrice.textContent =
-            `$${product.price}`;
-
-        const originalPrice =
-            document.createElement("span");
-
-        originalPrice.classList.add("original");
-        originalPrice.textContent =
-            `$${product.originalPrice}`;
-
-        const badge =
-            document.createElement("span");
-
-        badge.classList.add("badge");
-        badge.textContent =
-            `-${product.discount}%`;
-
-        priceContainer.appendChild(
-            currentPrice
-        );
-
-        priceContainer.appendChild(
-            originalPrice
-        );
-
-        priceContainer.appendChild(badge);
-    } else {
-        priceContainer.textContent =
-            `$${product.price}`;
+        price.append(originalPrice, badge);
     }
 
-    card.appendChild(imageWrapper);
-    card.appendChild(title);
-    card.appendChild(ratingContainer);
-    card.appendChild(priceContainer);
+    card.append(
+        imageWrapper,
+        title,
+        ratingContainer,
+        price
+    );
 
     return card;
 }
 
-function getAverageRating(reviews) {
-    if (
-        !Array.isArray(reviews) ||
-        reviews.length === 0
-    ) {
-        return 0;
-    }
-
-    const total = reviews.reduce(
-        (sum, review) =>
-            sum + Number(review.rating || 0),
-        0
-    );
-
-    const average =
-        total / reviews.length;
-
-    return Math.floor(average * 2) / 2;
-}
-
-function createStars(rating) {
-    const fullStars = Math.floor(rating);
-    const hasHalfStar = rating % 1 >= 0.5;
-
-    let stars = "";
-
-    for (let i = 0; i < fullStars; i++) {
-        stars += `
-            <img
-                src="./assets/icons/Star.svg"
-                alt="Star"
-                class="product-card__star-img"
-            >
-        `;
-    }
-
-    if (hasHalfStar) {
-        stars += `
-            <img
-                src="./assets/icons/halfStar.svg"
-                alt="Half Star"
-                class="product-card__star-img"
-            >
-        `;
-    }
-
-    return stars;
-}
-
-function renderProducts(
-    products,
-    grid,
-    button
-) {
-    if (!grid || !button) return;
-
-    const initialProducts = 4;
+function renderProducts(products, grid, button) {
+    const firstProducts = 4;
     let showingAll = false;
 
     function render(count) {
-        grid.innerHTML = "";
+        grid.replaceChildren();
 
-        const productsToShow =
-            products.slice(0, count);
-
-        productsToShow.forEach((product) => {
-            const productCard =
-                createProductCard(product);
-
-            grid.appendChild(productCard);
+        products.slice(0, count).forEach(product => {
+            grid.appendChild(createProductCard(product));
         });
 
-        if (
-            products.length <= initialProducts
-        ) {
-            button.style.display = "none";
-        } else {
-            button.style.display = "block";
-        }
+        button.style.display =
+            products.length <= firstProducts ? "none" : "block";
     }
 
-    render(initialProducts);
+    render(firstProducts);
 
     button.addEventListener("click", () => {
-        if (!showingAll) {
+        showingAll = !showingAll;
+
+        if (showingAll) {
             render(products.length);
             button.textContent = "Show Less";
-            showingAll = true;
         } else {
-            render(initialProducts);
+            render(firstProducts);
             button.textContent = "View All";
-            showingAll = false;
         }
     });
 }
